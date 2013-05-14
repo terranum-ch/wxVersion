@@ -13,6 +13,11 @@ SOURCE_GROUP (source FILES ${SRC_FILES})
 SET(WXWINDOWS_USE_GL 0)
 INCLUDE ("../../../cmake/FindwxWidgets.cmake")
 
+
+#INCLUDE wxHGVERSION
+INCLUDE("../../../build/use_wxhgversion.cmake")
+
+
 ADD_EXECUTABLE(${CMAKE_PROJECT_NAME} ${SRC_FILES})
 
 # SHOULD WE USE THE MT VERSION FOR DEFAULT 
