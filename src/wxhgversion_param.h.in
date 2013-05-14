@@ -17,9 +17,8 @@ email                : lucien.schreiber at crealp dot vs dot ch
 *                                                                         *
 ***************************************************************************/
 
-#ifndef _LSVERSION_PARAM_H_
-#define _LSVERSION_PARAM_H_
-
+#ifndef _WXHGVERSION_PARAM_H_
+#define _WXHGVERSION_PARAM_H_
 
 #include "wx/wxprec.h"
 #ifndef WX_PRECOMP
@@ -27,47 +26,15 @@ email                : lucien.schreiber at crealp dot vs dot ch
 #endif
 
 // USING lsVERSION PLUGIN 
-#cmakedefine lsVERSION_ENABLED
+#cmakedefine WXHGVERSION_ENABLED
 
 // SOFTWARE INFOS
-#cmakedefine lsVERSION_SOFT_NAME "@lsVERSION_SOFT_NAME@"
-#cmakedefine lsVERSION_SOFT_VERSION "@lsVERSION_SOFT_VERSION@"
+#cmakedefine WXHGVERSION_SOFT_NAME "@WXHGVERSION_SOFT_NAME@"
+#cmakedefine WXHGVERSION_TEXT "@WXHGVERSION_TEXT@"
+#cmakedefine WXHGVERSION_BRANCH "@WXHGVERSION_BRANCH@"
+#cmakedefine WXHGVERSION_NUMBER "@WXHGVERSION_NUMBER@"
 
 // WXWIDGETS version
-#cmakedefine lsVERSION_WXWIDGETS_SVN "@lsVERSION_WXWIDGETS_SVN@"
-
-// USING GDAL
-#cmakedefine lsVERSION_HAS_GDAL
-#ifdef lsVERSION_HAS_GDAL
-  #include "gdal_priv.h"		
-#endif
-
-// USING GEOS
-#cmakedefine lsVERSION_HAS_GEOS
-#ifdef lsVERSION_HAS_GEOS
-  #include "geos_c.h"
-#endif
-
-// USING CURL
-#cmakedefine lsVERSION_HAS_CURL
-#ifdef lsVERSION_HAS_CURL
-  #include <curl/curl.h>
-#endif
-
-// USING SQLITE
-#cmakedefine lsVERSION_HAS_SQLITE
-#ifdef lsVERSION_HAS_SQLITE
- #include <sqlite3.h>
-#endif
-
-// USING MYSQL
-#cmakedefine lsVERSION_HAS_MYSQL
-#ifdef lsVERSION_HAS_MYSQL
-	#include "mysql.h"
-#endif
-
-// USING VROOMGIS
-#cmakedefine lsVERSION_VROOMGIS_SVN "@lsVERSION_VROOMGIS_SVN@"
-
+#cmakedefine WXHGVERSION_WXWIDGETS_SVN "@WXHGVERSION_WXWIDGETS_SVN@"
 
 #endif
