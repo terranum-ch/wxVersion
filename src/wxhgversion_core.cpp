@@ -65,7 +65,7 @@ wxString wxHgVersion::GetwxWidgetsSVN(){
 }
 
 wxString wxHgVersion::GetAllSoftwareInfo(bool useBranch){
-    wxString myText = GetSoftName();
+    wxString myText = GetSoftName() + _T("\n");
     myText.Append(wxString::Format(_("version: %s (%s)"), GetSoftNumber(), GetSoftVersion()));
     if (useBranch == true) {
         myText.Append(wxString::Format(_("\nbranch: '%s'"), GetSoftBranch()));
