@@ -1,0 +1,23 @@
+# CMAKE BUILD FILE FOR CMDLINETEST 
+# (c) LUCIEN SCHREIBER 2013
+
+cmake_minimum_required(VERSION 2.6)
+PROJECT ("cmdLineTest")
+
+#search all source files
+SET (SRC_FILES "../src/main.cpp")
+SOURCE_GROUP (source FILES ${SRC_FILES})
+
+# FIND WXWIDGETS
+# FOR WINDOWS, DO NOT FORGET TO DEFINE WXWIN VARIABLE
+SET(WXWINDOWS_USE_GL 0)
+INCLUDE ("../../../cmake/FindwxWidgets.cmake")
+
+ADD_EXECUTABLE(${CMAKE_PROJECT_NAME} ${SRC_FILES})
+
+# SHOULD WE USE THE MT VERSION FOR DEFAULT 
+# COMPATIBILITY WITH < WINXP
+IF (WIN32)
+  INCLUDE ("../../../cmake/Use_visualstudioMT.cmake")
+ENDIF (WIN32)
+
