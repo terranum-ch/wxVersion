@@ -1,124 +1,84 @@
 /***************************************************************************
-				lsversion_core.cpp
-                    
-                             -------------------
-    copyright            : (C) 2010 CREALP Lucien Schreiber 
-    email                : lucien.schreiber at crealp dot vs dot ch
+ wxhgversion_core.cpp
+ -------------------
+ copyright            : (C) 2013 Lucien Schreiber
+ email                : lucien.schreiber at gmail dot com
  ***************************************************************************/
+#include "wxhgversion_core.h"
 
-/***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- ***************************************************************************/
-
-#include "lsversion_core.h"
-
-wxString lsVersion::GetSoftName()
-{
+wxString wxHgVersion::GetSoftName(){
 	wxString myName = wxEmptyString;
-#ifdef lsVERSION_SOFT_NAME
-	myName = lsVERSION_SOFT_NAME;
+#ifdef WXHGVERSION_SOFT_NAME
+	myName = wxhgversion_SOFT_NAME;
 #endif
 	return myName;
 }
 
-wxString lsVersion::GetSoftSVN()
+
+
+wxString wxHgVersion::GetSoftSVN()
 {
 	wxString mySVN = wxEmptyString;
-#ifdef lsVERSION_SOFT_VERSION
-	mySVN = lsVERSION_SOFT_VERSION;
+#ifdef wxhgversion_SOFT_VERSION
+	mySVN = wxhgversion_SOFT_VERSION;
 #endif
 	return mySVN;
 }
 
-wxString lsVersion::GetwxWidgetsNumber()
-{
-	wxString mywxVersion = wxString::Format("%d.%d.%d",
-							wxMAJOR_VERSION,
-							wxMINOR_VERSION,
-							wxRELEASE_NUMBER);
+
+wxString wxHgVersion:GetSoftVersion(){
+    wxString myVersion = wxEmptyString;
+#ifdef WXHGVERSION_TEXT
+	myVersion = WXHGVERSION_TEXT;
+#endif
+	return myVersion;
+}
+
+
+
+wxString wxHgVersion:GetSoftBranch(){
+    wxString myBranch = wxEmptyString;
+#ifdef WXHGVERSION_BRANCH
+	myBranch = WXHGVERSION_BRANCH;
+#endif
+	return myBranch;
+}
+
+
+
+wxString wxHgVersion:GetSoftNumber(){
+    wxString myNum = wxEmptyString;
+#ifdef WXHGVERSION_NUMBER
+	myBranch = WXHGVERSION_NUMBER;
+#endif
+	return myNumber;
+}
+
+
+wxString wxHgVersion::GetwxWidgetsNumber(){
+	wxString mywxVersion = wxString::Format("%d.%d.%d", wxMAJOR_VERSION, wxMINOR_VERSION, wxRELEASE_NUMBER);
 	if (wxSUBRELEASE_NUMBER != 0) {
 		mywxVersion.Append(wxString::Format(".%d",wxSUBRELEASE_NUMBER));
 	}
-	
-	return mywxVersion; 
+	return mywxVersion;
 }
 
-wxString lsVersion::GetwxWidgetsSVN()
-{ 
+
+wxString wxHgVersion::GetwxWidgetsSVN()
+{
 	wxString mySVN = wxEmptyString;
-#ifdef lsVERSION_WXWIDGETS_SVN
-	mySVN = lsVERSION_WXWIDGETS_SVN;
+#ifdef WXHGVERSION_WXWIDGETS_SVN
+	mySVN = WXHGVERSION_WXWIDGETS_SVN;
 #endif
 	return mySVN;
 }
 
-wxString lsVersion::GetGDALNumber()
+
+wxString wxHgVersion::GetAll()
 {
-	wxString myGDAL = wxEmptyString;
-#ifdef lsVERSION_HAS_GDAL
-	myGDAL = GDAL_RELEASE_NAME;
-#endif
-	return myGDAL;
-}
-
-wxString lsVersion::GetGEOSNumber()
-{
-	wxString myGEOS = wxEmptyString;
-#ifdef lsVERSION_HAS_GEOS
-	myGEOS = GEOS_VERSION;
-#endif
-	return myGEOS;
-}
-
-
-wxString lsVersion::GetCurlNumber(){
-    wxString myCurl = wxEmptyString;
-#ifdef lsVERSION_HAS_CURL    
-    myCurl = wxString(LIBCURL_VERSION);
-#endif
-    return myCurl;
-}
-
-
-
-wxString lsVersion::GetSQLiteNumber(){
-    wxString mySQlite = wxEmptyString;
-#ifdef lsVERSION_HAS_SQLITE
-    mySQlite  = wxString(sqlite3_libversion());
-#endif
-    return mySQlite;
-}
-
-
-wxString lsVersion::GetMySQLNumber(){
-	wxString myMySQL = wxEmptyString;
-#ifdef lsVERSION_HAS_MYSQL
-	myMySQL = wxString(mysql_get_client_info(), wxConvUTF8);
-#endif
-	return myMySQL;
-}
-
-
-
-wxString lsVersion::GetVroomGISNumber(){
-    wxString myVroomGIS = wxEmptyString;
-#ifdef lsVERSION_VROOMGIS_SVN
-    myVroomGIS = lsVERSION_VROOMGIS_SVN;
-#endif
-    return myVroomGIS;
-}
-
-
-
-wxString lsVersion::GetAllModules()
-{
+    
 	wxString myModules = _T("wxWidgets: ") + GetwxWidgetsNumber();
-
+    
     if (GetwxWidgetsSVN().IsEmpty() == false) {
         myModules.Append(wxString::Format(" (%s)", GetwxWidgetsSVN()));
     }
@@ -148,7 +108,7 @@ wxString lsVersion::GetAllModules()
         myModules.Append(_T("libCURL: ") + GetCurlNumber() + _T("\n"));
     }
     
-	myModules.Append(wxGetOsDescription());	
+	myModules.Append(wxGetOsDescription());
 	return myModules;
 }
 
