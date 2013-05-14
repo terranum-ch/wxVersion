@@ -22,7 +22,8 @@ public:
     static wxString GetSoftNumber();
     static wxString GetwxWidgetsNumber();
     static wxString GetwxWidgetsSVN();
-    static wxString GetAll();
+    static wxString GetAllSoftwareInfo(bool useBranch = true);
+    static wxString GetAllModuleInfo();
 };
 #endif
 

@@ -9,24 +9,14 @@
 wxString wxHgVersion::GetSoftName(){
 	wxString myName = wxEmptyString;
 #ifdef WXHGVERSION_SOFT_NAME
-	myName = wxhgversion_SOFT_NAME;
+	myName = WXHGVERSION_SOFT_NAME;
 #endif
 	return myName;
 }
 
 
 
-wxString wxHgVersion::GetSoftSVN()
-{
-	wxString mySVN = wxEmptyString;
-#ifdef wxhgversion_SOFT_VERSION
-	mySVN = wxhgversion_SOFT_VERSION;
-#endif
-	return mySVN;
-}
-
-
-wxString wxHgVersion:GetSoftVersion(){
+wxString wxHgVersion::GetSoftVersion(){
     wxString myVersion = wxEmptyString;
 #ifdef WXHGVERSION_TEXT
 	myVersion = WXHGVERSION_TEXT;
@@ -36,7 +26,7 @@ wxString wxHgVersion:GetSoftVersion(){
 
 
 
-wxString wxHgVersion:GetSoftBranch(){
+wxString wxHgVersion::GetSoftBranch(){
     wxString myBranch = wxEmptyString;
 #ifdef WXHGVERSION_BRANCH
 	myBranch = WXHGVERSION_BRANCH;
@@ -46,13 +36,14 @@ wxString wxHgVersion:GetSoftBranch(){
 
 
 
-wxString wxHgVersion:GetSoftNumber(){
+wxString wxHgVersion::GetSoftNumber(){
     wxString myNum = wxEmptyString;
 #ifdef WXHGVERSION_NUMBER
-	myBranch = WXHGVERSION_NUMBER;
+	myNum = WXHGVERSION_NUMBER;
 #endif
-	return myNumber;
+	return myNum;
 }
+
 
 
 wxString wxHgVersion::GetwxWidgetsNumber(){
@@ -64,8 +55,8 @@ wxString wxHgVersion::GetwxWidgetsNumber(){
 }
 
 
-wxString wxHgVersion::GetwxWidgetsSVN()
-{
+
+wxString wxHgVersion::GetwxWidgetsSVN(){
 	wxString mySVN = wxEmptyString;
 #ifdef WXHGVERSION_WXWIDGETS_SVN
 	mySVN = WXHGVERSION_WXWIDGETS_SVN;
@@ -73,42 +64,23 @@ wxString wxHgVersion::GetwxWidgetsSVN()
 	return mySVN;
 }
 
+wxString wxHgVersion::GetAllSoftwareInfo(bool useBranch){
+    wxString myText = GetSoftName();
+    myText.Append(wxString::Format(_("version: %s (%s)"), GetSoftNumber(), GetSoftVersion()));
+    if (useBranch == true) {
+        myText.Append(wxString::Format(_("\nbranch: '%s'"), GetSoftBranch()));
+    }
+    return myText;
+}
 
-wxString wxHgVersion::GetAll()
-{
-    
-	wxString myModules = _T("wxWidgets: ") + GetwxWidgetsNumber();
-    
+
+wxString wxHgVersion::GetAllModuleInfo(){
+    wxString myModules = _T("wxWidgets: ") + GetwxWidgetsNumber();
     if (GetwxWidgetsSVN().IsEmpty() == false) {
         myModules.Append(wxString::Format(" (%s)", GetwxWidgetsSVN()));
     }
 	myModules.Append(_T("\n"));
-    
-    if (GetVroomGISNumber().IsEmpty() == false) {
-        myModules.Append(_T("vroomGIS: ") + GetVroomGISNumber() + _T("\n"));
-    }
-	
-	if (GetMySQLNumber().IsEmpty() == false){
-		myModules.Append(_T("MySQL: ") + GetMySQLNumber() + _T("\n"));
-	}
-	
-    if (GetSQLiteNumber().IsEmpty() == false) {
-        myModules.Append(_T("SQLite: ") + GetSQLiteNumber() + _T("\n"));
-    }
-    
-    if (GetGDALNumber().IsEmpty() == false) {
-        myModules.Append(_T("GDAL: ") + GetGDALNumber() + _T("\n"));
-    }
-    
-    if (GetGEOSNumber().IsEmpty() == false) {
-        myModules.Append(_T("GEOS: ") + GetGEOSNumber() + _T("\n"));
-    }
-    
-    if (GetCurlNumber().IsEmpty() == false ) {
-        myModules.Append(_T("libCURL: ") + GetCurlNumber() + _T("\n"));
-    }
-    
-	myModules.Append(wxGetOsDescription());
-	return myModules;
+    myModules.Append(wxGetOsDescription());
+    return myModules;
 }
 
