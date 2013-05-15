@@ -20,6 +20,12 @@ public:
     static wxString GetSoftVersion();
     static wxString GetSoftBranch();
     static wxString GetSoftNumber();
+    
+    static wxString GetVersionName();
+    static wxString GetVersionVersion();
+    static wxString GetVersionBranch();
+    static wxString GetVersionNumber();
+    
     static wxString GetwxWidgetsNumber();
     static wxString GetwxWidgetsSVN();
     static wxString GetAllSoftwareInfo(bool useBranch = true);
