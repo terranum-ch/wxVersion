@@ -18,8 +18,8 @@ wxString wxHgVersion::GetSoftName(){
 
 wxString wxHgVersion::GetSoftVersion(){
     wxString myVersion = wxEmptyString;
-#ifdef WXHGVERSION_TEXT
-	myVersion = WXHGVERSION_TEXT;
+#ifdef WXHGVERSION_SOFT_TEXT
+	myVersion = WXHGVERSION_SOFT_TEXT;
 #endif
 	return myVersion;
 }
@@ -28,8 +28,8 @@ wxString wxHgVersion::GetSoftVersion(){
 
 wxString wxHgVersion::GetSoftBranch(){
     wxString myBranch = wxEmptyString;
-#ifdef WXHGVERSION_BRANCH
-	myBranch = WXHGVERSION_BRANCH;
+#ifdef WXHGVERSION_SOFT_BRANCH
+	myBranch = WXHGVERSION_SOFT_BRANCH;
 #endif
 	return myBranch;
 }
@@ -38,11 +38,52 @@ wxString wxHgVersion::GetSoftBranch(){
 
 wxString wxHgVersion::GetSoftNumber(){
     wxString myNum = wxEmptyString;
-#ifdef WXHGVERSION_NUMBER
-	myNum = WXHGVERSION_NUMBER;
+#ifdef WXHGVERSION_SOFT_NUMBER
+	myNum = WXHGVERSION_SOFT_NUMBER;
 #endif
 	return myNum;
 }
+
+
+
+wxString wxHgVersion::GetVersionName(){
+    wxString myTxt = wxEmptyString;
+#ifdef WXHGVERSION_NAME
+    myTxt = WXHGVERSION_NAME;
+#endif
+    return myTxt;
+}
+
+
+
+wxString wxHgVersion::GetVersionVersion(){
+    wxString myTxt = wxEmptyString;
+#ifdef WXHGVERSION_TEXT
+    myTxt = WXHGVERSION_TEXT;
+#endif
+    return myTxt;
+}
+
+
+
+wxString wxHgVersion::GetVersionBranch(){
+    wxString myTxt = wxEmptyString;
+#ifdef WXHGVERSION_BRANCH
+    myTxt = WXHGVERSION_BRANCH;
+#endif
+    return myTxt;
+}
+
+
+
+wxString wxHgVersion::GetVersionNumber(){
+    wxString myTxt = wxEmptyString;
+#ifdef WXHGVERSION_NUMBER
+    myTxt = WXHGVERSION_NUMBER;
+#endif
+    return myTxt;
+}
+
 
 
 
@@ -75,7 +116,9 @@ wxString wxHgVersion::GetAllSoftwareInfo(bool useBranch){
 
 
 wxString wxHgVersion::GetAllModuleInfo(){
-    wxString myModules = _T("wxWidgets: ") + GetwxWidgetsNumber();
+    wxString myModules = wxString::Format(_T("%s: %s (%s)\n"), GetVersionName(), GetVersionNumber(), GetVersionVersion());
+    
+    myModules.Append(_T("wxWidgets: ") + GetwxWidgetsNumber());
     if (GetwxWidgetsSVN().IsEmpty() == false) {
         myModules.Append(wxString::Format(" (%s)", GetwxWidgetsSVN()));
     }
