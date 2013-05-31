@@ -34,4 +34,42 @@ email                : lucien.schreiber at gmail dot com
 // WXWIDGETS version
 #cmakedefine WXHGVERSION_WXWIDGETS_SVN "@WXHGVERSION_WXWIDGETS_SVN@"
 
+// VROOMGIS
+#cmakedefine VROOMGIS_PATH
+#ifdef VROOMGIS_PATH
+    #cmakedefine VROOMGIS_TEXT "@VROOMGIS_TEXT@"
+    #cmakedefine VROOMGIS_BRANCH "@VROOMGIS_BRANCH@"
+    #cmakedefine VROOMGIS_NUMBER "@VROOMGIS_NUMBER@"
+#endif
+
+// GDAL
+#cmakedefine GDAL_INCLUDE_DIR
+#ifdef GDAL_INCLUDE_DIR
+    #include <gdal_priv.h>
+#endif
+
+// GEOS
+#cmakedefine GEOS_INCLUDE_DIR
+#ifdef GEOS_INCLUDE_DIR
+    #include <geos_c.h>
+#endif
+
+// CURL
+#cmakedefine SEARCH_CURL
+#ifdef SEARCH_CURL
+    #include <curl/curl.h>
+#endif
+
+// SQLITE 3
+#cmakedefine SQLITE_LIBRARIES
+#ifdef SQLITE_LIBRARIES
+    #include <sqlite3.h>
+#endif
+
+// MYSQL 
+#cmakedefine MYSQL_INCLUDE_DIR
+#ifdef MYSQL_INCLUDE_DIR
+    #include <mysql.h>
+#endif
+
 #endif

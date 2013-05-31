@@ -86,6 +86,35 @@ wxString wxHgVersion::GetVersionNumber(){
 
 
 
+wxString wxHgVersion::GetvroomGISVersion(){
+    wxString myTxt = wxEmptyString;
+#ifdef VROOMGIS_TEXT
+    myTxt = VROOMGIS_TEXT;
+#endif
+    return myTxt;
+}
+
+
+
+wxString wxHgVersion::GetvroomGISBranch(){
+    wxString myTxt = wxEmptyString;
+#ifdef VROOMGIS_BRANCH
+    myTxt = VROOMGIS_BRANCH;
+#endif
+    return myTxt;
+}
+
+
+
+wxString wxHgVersion::GetvroomGISNumber(){
+    wxString myTxt = wxEmptyString;
+#ifdef VROOMGIS_NUMBER
+    myTxt = VROOMGIS_NUMBER;
+#endif
+    return myTxt;
+}
+
+
 
 wxString wxHgVersion::GetwxWidgetsNumber(){
 	wxString mywxVersion = wxString::Format("%d.%d.%d", wxMAJOR_VERSION, wxMINOR_VERSION, wxRELEASE_NUMBER);
@@ -105,6 +134,54 @@ wxString wxHgVersion::GetwxWidgetsSVN(){
 	return mySVN;
 }
 
+
+
+wxString wxHgVersion::GetGDALNumber(){
+	wxString myGDAL = wxEmptyString;
+#ifdef GDAL_INCLUDE_DIR
+	myGDAL = GDAL_RELEASE_NAME;
+#endif
+	return myGDAL;
+}
+
+
+wxString wxHgVersion::GetGEOSNumber(){
+	wxString myGEOS = wxEmptyString;
+#ifdef GEOS_INCLUDE_DIR
+	myGEOS = GEOS_VERSION;
+#endif
+	return myGEOS;
+}
+
+
+wxString wxHgVersion::GetCurlNumber(){
+    wxString myTxt = wxEmptyString;
+#ifdef SEARCH_CURL
+    myTxt = wxString(LIBCURL_VERSION);
+#endif
+    return myTxt;
+}
+
+
+wxString wxHgVersion::GetSQLiteNumber(){
+    wxString mySQlite = wxEmptyString;
+#ifdef SQLITE_LIBRARIES
+    mySQlite  = wxString(sqlite3_libversion());
+#endif
+    return mySQlite;
+}
+
+
+wxString wxHgVersion::GetMySQLNumber(){
+	wxString myMySQL = wxEmptyString;
+#ifdef MYSQL_INCLUDE_DIR
+	myMySQL = wxString(mysql_get_client_info(), wxConvUTF8);
+#endif
+	return myMySQL;
+}
+
+
+
 wxString wxHgVersion::GetAllSoftwareInfo(bool useBranch){
     wxString myText = GetSoftName() + _T("\n");
     myText.Append(wxString::Format(_("version: %s (%s)"), GetSoftNumber(), GetSoftVersion()));
@@ -118,6 +195,30 @@ wxString wxHgVersion::GetAllSoftwareInfo(bool useBranch){
 wxString wxHgVersion::GetAllModuleInfo(){
     wxString myModules = wxString::Format(_T("%s: %s (%s)\n"), GetVersionName(), GetVersionNumber(), GetVersionVersion());
     
+    if (GetvroomGISNumber() != wxEmptyString) {
+        myModules.Append(wxString::Format(_T("vroomGIS: %s (%s)\n"), GetvroomGISNumber(), GetVersionVersion()));
+    }
+    
+    if (GetGDALNumber() != wxEmptyString) {
+        myModules.Append(_T("GDAL: ") + GetGDALNumber() + _T("\n"));
+    }
+    
+    if (GetGEOSNumber() != wxEmptyString) {
+        myModules.Append(_T("GEOS: ") + GetGEOSNumber() + _T("\n"));
+    }
+    
+    if (GetCurlNumber() != wxEmptyString) {
+        myModules.Append(_T("libCurl: ") + GetCurlNumber() + _T("\n"));
+    }
+    
+    if (GetSQLiteNumber() != wxEmptyString) {
+        myModules.Append(_T("SQLite: ") + GetSQLiteNumber() + _T("\n"));
+    }
+    
+    if (GetMySQLNumber() != wxEmptyString) {
+        myModules.Append(_T("MySQL: ") + GetMySQLNumber() + _T("\n"));
+    }
+                         
     myModules.Append(_T("wxWidgets: ") + GetwxWidgetsNumber());
     if (GetwxWidgetsSVN().IsEmpty() == false) {
         myModules.Append(wxString::Format(" (%s)", GetwxWidgetsSVN()));

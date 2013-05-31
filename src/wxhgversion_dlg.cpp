@@ -82,7 +82,7 @@ void wxHgVersionDlg::_CreateControls(){
 	m_ProgNameCtrl->Wrap( -1 );
 	bSizer1->Add( m_ProgNameCtrl, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 	
-	m_ModulesCtrl = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize(250,150), wxTE_MULTILINE | wxTE_CENTRE );
+	m_ModulesCtrl = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize(300,180), wxTE_MULTILINE | wxTE_CENTRE );
 	bSizer1->Add( m_ModulesCtrl, 1, wxALL|wxEXPAND, 5 );
 	
 	m_CopyRightCtrl = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
