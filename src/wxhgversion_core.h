@@ -26,8 +26,19 @@ public:
     static wxString GetVersionBranch();
     static wxString GetVersionNumber();
     
+    static wxString GetvroomGISVersion();
+    static wxString GetvroomGISBranch();
+    static wxString GetvroomGISNumber();
+    
     static wxString GetwxWidgetsNumber();
     static wxString GetwxWidgetsSVN();
+
+    static wxString GetGDALNumber();
+    static wxString GetGEOSNumber();
+    static wxString GetCurlNumber();
+    static wxString GetSQLiteNumber();
+	static wxString GetMySQLNumber();
+    
     static wxString GetAllSoftwareInfo(bool useBranch = true);
     static wxString GetAllModuleInfo();
 };
