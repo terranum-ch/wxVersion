@@ -196,7 +196,7 @@ wxString wxHgVersion::GetAllModuleInfo(){
     wxString myModules = wxString::Format(_T("%s: %s (%s)\n"), GetVersionName(), GetVersionNumber(), GetVersionVersion());
     
     if (GetvroomGISNumber() != wxEmptyString) {
-        myModules.Append(wxString::Format(_T("vroomGIS: %s (%s)\n"), GetvroomGISNumber(), GetVersionVersion()));
+        myModules.Append(wxString::Format(_T("vroomGIS: %s (%s)\n"), GetvroomGISNumber(), GetvroomGISVersion()));
     }
     
     if (GetGDALNumber() != wxEmptyString) {
