@@ -243,7 +243,7 @@ wxString wxHgVersion::GetAllModuleInfo(){
     }
     
     if (GetNetCDFNumber() != wxEmptyString) {
-        myModules.Append(_T("NetCDF: ") + GetNetCDFNumber() + _T("\n"));
+        myModules.Append(_T("NetCDF: ") + GetNetCDFNumber().BeforeFirst(' ') + _T("\n"));
     }
     
     if (GetProjNumber() != wxEmptyString) {
