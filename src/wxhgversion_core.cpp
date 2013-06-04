@@ -181,6 +181,29 @@ wxString wxHgVersion::GetMySQLNumber(){
 }
 
 
+wxString wxHgVersion::GetNetCDFNumber(){
+    wxString ncVers = wxEmptyString;
+#ifdef NetCDF_LIBRARIES
+    ncVers = wxString(nc_inq_libvers());
+#endif
+    return ncVers;
+}
+
+
+wxString wxHgVersion::GetProjNumber(){
+    wxString myTxt = wxEmptyString;
+#ifdef PROJ4_LIBRARIES
+    myTxt = wxString::Format("%d", PJ_VERSION);
+#endif
+    return myTxt;
+}
+
+
+wxString wxHgVersion::GetEigenNumber(){
+    // TODO: Get Eigen version number
+    return wxEmptyString;
+}
+
 
 wxString wxHgVersion::GetAllSoftwareInfo(bool useBranch){
     wxString myText = GetSoftName() + _T("\n");
@@ -218,7 +241,19 @@ wxString wxHgVersion::GetAllModuleInfo(){
     if (GetMySQLNumber() != wxEmptyString) {
         myModules.Append(_T("MySQL: ") + GetMySQLNumber() + _T("\n"));
     }
-                         
+    
+    if (GetNetCDFNumber() != wxEmptyString) {
+        myModules.Append(_T("NetCDF: ") + GetNetCDFNumber() + _T("\n"));
+    }
+    
+    if (GetProjNumber() != wxEmptyString) {
+        myModules.Append(_T("Proj4: ") + GetProjNumber() + _T("\n"));
+    }
+    
+    if (GetEigenNumber() != wxEmptyString) {
+        myModules.Append(_T("Eigen: ") + GetEigenNumber() + _T("\n"));
+    }
+    
     myModules.Append(_T("wxWidgets: ") + GetwxWidgetsNumber());
     if (GetwxWidgetsSVN().IsEmpty() == false) {
         myModules.Append(wxString::Format(" (%s)", GetwxWidgetsSVN()));
