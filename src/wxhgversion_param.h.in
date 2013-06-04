@@ -72,4 +72,17 @@ email                : lucien.schreiber at gmail dot com
     #include <mysql.h>
 #endif
 
+// NETCDF 
+#cmakedefine NetCDF_LIBRARIES
+#ifdef NetCDF_LIBRARIES
+    #include <netcdf.h>
+#endif
+
+// PROJ4 
+#cmakedefine PROJ4_LIBRARIES
+#ifdef PROJ4_LIBRARIES
+    #include <proj_api.h>
+#endif
+
+
 #endif

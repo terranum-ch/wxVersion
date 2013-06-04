@@ -38,6 +38,9 @@ public:
     static wxString GetCurlNumber();
     static wxString GetSQLiteNumber();
 	static wxString GetMySQLNumber();
+    static wxString GetNetCDFNumber();
+    static wxString GetProjNumber();
+    static wxString GetEigenNumber();
     
     static wxString GetAllSoftwareInfo(bool useBranch = true);
     static wxString GetAllModuleInfo();
