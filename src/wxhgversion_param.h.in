@@ -55,8 +55,8 @@ email                : lucien.schreiber at gmail dot com
 #endif
 
 // CURL
-#cmakedefine SEARCH_CURL
-#ifdef SEARCH_CURL
+#cmakedefine CURL_LIBRARY
+#ifdef CURL_LIBRARY
     #include <curl/curl.h>
 #endif
 
