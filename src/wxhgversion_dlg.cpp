@@ -23,11 +23,24 @@ wxDialog(parent, id, title, pos, size,style) {
 	wxString myCopy = wxString::Format("\u00A9 Lucien Schreiber, %d",
 									   wxDateTime::Now().GetYear());
 	SetCopyright(myCopy);
+    m_ButtonSystemInfoCtrl->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &wxHgVersionDlg::OnButtonSystemInfo, this);
 }
 
 
 
 wxHgVersionDlg::~wxHgVersionDlg() {
+    m_ButtonSystemInfoCtrl->Unbind(wxEVT_COMMAND_BUTTON_CLICKED, &wxHgVersionDlg::OnButtonSystemInfo, this);
+}
+
+
+void wxHgVersionDlg::OnButtonSystemInfo(wxCommandEvent & event){
+    wxString myCaption = wxGetOsDescription();
+#ifdef __LINUX__
+    myCaption.Append(_T("\n"));
+    myCaption.Append(wxGetLinuxDistributionInfo().Description + _T("\n") + wxGetLinuxDistributionInfo().CodeName);
+#endif
+    wxMessageDialog myDlg(this, myCaption, _("System information"));
+    myDlg.ShowModal();
 }
 
 
@@ -84,11 +97,18 @@ void wxHgVersionDlg::_CreateControls(){
 	
 	m_ModulesCtrl = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize(300,180), wxTE_MULTILINE | wxTE_LEFT);
 	bSizer1->Add( m_ModulesCtrl, 1, wxALL|wxEXPAND, 5 );
+	   
+    wxBoxSizer* bSizer2;
+	bSizer2 = new wxBoxSizer( wxHORIZONTAL );
 	
 	m_CopyRightCtrl = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	m_CopyRightCtrl->Wrap( -1 );
-	bSizer1->Add( m_CopyRightCtrl, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer2->Add( m_CopyRightCtrl, 1, wxALL|wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL, 5 );
 	
+	m_ButtonSystemInfoCtrl = new wxButton( this, wxID_ANY, wxT("System info"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer2->Add( m_ButtonSystemInfoCtrl, 0, wxALL, 5 );
+	bSizer1->Add( bSizer2, 0, wxEXPAND, 5 );
+    
 #ifdef __WXOSX__
 	m_TitleCtrl->SetFont(wxNullFont);
 	m_ProgNameCtrl->SetFont(wxNullFont);

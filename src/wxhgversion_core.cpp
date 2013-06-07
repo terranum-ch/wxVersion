@@ -258,8 +258,6 @@ wxString wxHgVersion::GetAllModuleInfo(){
     if (GetwxWidgetsSVN().IsEmpty() == false) {
         myModules.Append(wxString::Format(" (%s)", GetwxWidgetsSVN()));
     }
-	myModules.Append(_T("\n"));
-    myModules.Append(wxGetOsDescription());
     return myModules;
 }
 
