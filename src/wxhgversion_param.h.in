@@ -55,8 +55,8 @@ email                : lucien.schreiber at gmail dot com
 #endif
 
 // CURL
-#cmakedefine CURL_LIBRARY
-#ifdef CURL_LIBRARY
+#cmakedefine CURL_INCLUDE_DIR
+#ifdef CURL_INCLUDE_DIR
     #include <curl/curl.h>
 #endif
 
@@ -78,9 +78,9 @@ email                : lucien.schreiber at gmail dot com
     #include <netcdf.h>
 #endif
 
-// PROJ4 
-#cmakedefine PROJ4_LIBRARIES
-#ifdef PROJ4_LIBRARIES
+// PROJ 
+#cmakedefine PROJ_LIBRARY
+#ifdef PROJ_LIBRARY
     #include <proj_api.h>
 #endif
 
