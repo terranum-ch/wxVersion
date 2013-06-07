@@ -156,7 +156,7 @@ wxString wxHgVersion::GetGEOSNumber(){
 
 wxString wxHgVersion::GetCurlNumber(){
     wxString myTxt = wxEmptyString;
-#ifdef SEARCH_CURL
+#ifdef CURL_INCLUDE_DIR
     myTxt = wxString(LIBCURL_VERSION);
 #endif
     return myTxt;
@@ -192,7 +192,7 @@ wxString wxHgVersion::GetNetCDFNumber(){
 
 wxString wxHgVersion::GetProjNumber(){
     wxString myTxt = wxEmptyString;
-#ifdef PROJ4_LIBRARIES
+#ifdef PROJ_LIBRARY
     myTxt = wxString::Format("%d", PJ_VERSION);
 #endif
     return myTxt;
