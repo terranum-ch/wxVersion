@@ -37,9 +37,11 @@ private:
 	wxStaticText* m_ProgNameCtrl;
 	wxTextCtrl* m_ModulesCtrl;
 	wxStaticText* m_CopyRightCtrl;
+    wxButton * m_ButtonSystemInfoCtrl;
 	
 	void _CreateControls();
     
+    void OnButtonSystemInfo(wxCommandEvent & event);    
 };
 #endif
 
