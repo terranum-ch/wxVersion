@@ -97,7 +97,7 @@ void wxHgVersionDlg::_CreateControls(){
 
 	bSizer1->Add( m_TitleCtrl, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
-	m_ProgNameCtrl = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_ProgNameCtrl = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE_HORIZONTAL );
 	m_ProgNameCtrl->Wrap( -1 );
 	bSizer1->Add( m_ProgNameCtrl, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
