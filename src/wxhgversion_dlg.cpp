@@ -24,13 +24,6 @@
 /*
  * Portions Copyright 2013 Lucien Schreiber, CREALP.
  */
- 
- /***************************************************************************
- wxhgversion_dlg.cpp
- -------------------
- copyright            : (C) 2013  Lucien Schreiber
- email                : lucien.schreiber at gmail dot com
- ***************************************************************************/
 
 #include "wxhgversion_dlg.h"
 #include "wxhgversion_core.h"
