@@ -23,6 +23,7 @@
 
 /*
  * Portions Copyright 2013 Lucien Schreiber, CREALP.
+ * Portions Copyright 2013 Pascal Horton, University of Lausanne.
  */
  
 #include "wxhgversion_core.h"
@@ -212,17 +213,40 @@ wxString wxHgVersion::GetNetCDFNumber(){
 
 
 wxString wxHgVersion::GetProjNumber(){
-    wxString myTxt = wxEmptyString;
+    wxString myProj = wxEmptyString;
 #ifdef PROJ_LIBRARY
-    myTxt = wxString::Format("%d", PJ_VERSION);
+    myProj = wxString::Format("%d", PJ_VERSION);
+#elif defined PROJ4_INCLUDE_DIR
+	myProj = wxString::Format("%d", PJ_VERSION);
 #endif
-    return myTxt;
+	// Adding points
+	if (!myProj.IsEmpty())
+	{
+		wxString myProjDots = wxEmptyString;
+		for (unsigned int i=0; i<myProj.Length(); i++)
+		{
+			if (i!=myProj.Length()-1)
+			{
+				myProjDots.Append(myProj.Mid(i,1)+".");
+			}
+			else
+			{
+				myProjDots.Append(myProj.Mid(i,1));
+			}
+		}
+		myProj = myProjDots;
+	}
+
+    return myProj;
 }
 
 
 wxString wxHgVersion::GetEigenNumber(){
-    // TODO: Get Eigen version number
-    return wxEmptyString;
+    wxString myTxt = wxEmptyString;
+#ifdef EIGEN_INCLUDE_DIR
+    myTxt = wxString::Format("%d.%d.%d", EIGEN_WORLD_VERSION, EIGEN_MAJOR_VERSION, EIGEN_MINOR_VERSION);
+#endif
+    return myTxt;
 }
 
 
@@ -236,11 +260,22 @@ wxString wxHgVersion::GetAllSoftwareInfo(bool useBranch){
 }
 
 
-wxString wxHgVersion::GetAllModuleInfo(){
-    wxString myModules = wxString::Format(_T("%s: %s (%s)\n"), GetVersionName(), GetVersionNumber(), GetVersionVersion());
+wxString wxHgVersion::GetAllModuleInfo(bool showChangesetID){
+	wxString myModules = wxEmptyString;
+	if (showChangesetID){
+		myModules = wxString::Format(_T("%s: %s (%s)\n"), GetVersionName(), GetVersionNumber(), GetVersionVersion());
+	}
+	else {
+		myModules = wxString::Format(_T("%s: %s\n"), GetVersionName(), GetVersionNumber());
+	}
     
     if (GetvroomGISNumber() != wxEmptyString) {
-        myModules.Append(wxString::Format(_T("vroomGIS: %s (%s)\n"), GetvroomGISNumber(), GetvroomGISVersion()));
+		if (showChangesetID){
+			myModules.Append(wxString::Format(_T("vroomGIS: %s (%s)\n"), GetvroomGISNumber(), GetvroomGISVersion()));
+		}
+		else {
+			myModules.Append(wxString::Format(_T("vroomGIS: %s\n"), GetvroomGISNumber()));
+		}
     }
     
     if (GetGDALNumber() != wxEmptyString) {

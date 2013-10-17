@@ -63,7 +63,7 @@ public:
     static wxString GetEigenNumber();
     
     static wxString GetAllSoftwareInfo(bool useBranch = true);
-    static wxString GetAllModuleInfo();
+    static wxString GetAllModuleInfo(bool showChangesetID = true);
 };
 #endif
 
