@@ -243,7 +243,7 @@ wxString wxHgVersion::GetProjNumber(){
 
 wxString wxHgVersion::GetEigenNumber(){
     wxString myTxt = wxEmptyString;
-#ifdef EIGEN_INCLUDE_DIR
+#ifdef EIGEN3_INCLUDE_DIR
     myTxt = wxString::Format("%d.%d.%d", EIGEN_WORLD_VERSION, EIGEN_MAJOR_VERSION, EIGEN_MINOR_VERSION);
 #endif
     return myTxt;
