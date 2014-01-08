@@ -114,8 +114,8 @@ wxhgversion_param.h.in
 #endif
 
 // EIGEN 
-#cmakedefine EIGEN_INCLUDE_DIR
-#ifdef EIGEN_INCLUDE_DIR
+#cmakedefine EIGEN3_INCLUDE_DIR
+#ifdef EIGEN3_INCLUDE_DIR
     #include <Eigen/Core>
 #endif
 
