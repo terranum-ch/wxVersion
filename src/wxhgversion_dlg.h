@@ -52,12 +52,12 @@ public:
 	virtual int ShowModal();
     
 private:
-	wxStaticBitmap* m_BmpCtrl;
-	wxStaticText* m_TitleCtrl;
-	wxStaticText* m_ProgNameCtrl;
-	wxTextCtrl* m_ModulesCtrl;
-	wxStaticText* m_CopyRightCtrl;
-    wxButton * m_ButtonSystemInfoCtrl;
+	wxStaticBitmap* m_bmpCtrl;
+	wxStaticText* m_titleCtrl;
+	wxStaticText* m_progNameCtrl;
+	wxTextCtrl* m_modulesCtrl;
+	wxStaticText* m_copyRightCtrl;
+    wxButton * m_buttonSystemInfoCtrl;
 	
 	void _CreateControls();
     
