@@ -25,50 +25,51 @@
  * Portions Copyright 2013 Lucien Schreiber, CREALP.
  * Portions Copyright 2013 Pascal Horton, University of Lausanne.
  */
- 
+
 #include "wxhgversion_core.h"
 
-wxString wxHgVersion::GetSoftName(){
-	wxString myName = wxEmptyString;
+wxString wxHgVersion::GetSoftName()
+{
+    wxString myName = wxEmptyString;
 #ifdef WXHGVERSION_SOFT_NAME
-	myName = WXHGVERSION_SOFT_NAME;
+    myName = WXHGVERSION_SOFT_NAME;
 #endif
-	return myName;
+    return myName;
 }
 
 
-
-wxString wxHgVersion::GetSoftVersion(){
+wxString wxHgVersion::GetSoftVersion()
+{
     wxString myVersion = wxEmptyString;
 #ifdef WXHGVERSION_SOFT_TEXT
-	myVersion = WXHGVERSION_SOFT_TEXT;
+    myVersion = WXHGVERSION_SOFT_TEXT;
 #endif
-	return myVersion;
+    return myVersion;
 }
 
 
-
-wxString wxHgVersion::GetSoftBranch(){
+wxString wxHgVersion::GetSoftBranch()
+{
     wxString myBranch = wxEmptyString;
 #ifdef WXHGVERSION_SOFT_BRANCH
-	myBranch = WXHGVERSION_SOFT_BRANCH;
+    myBranch = WXHGVERSION_SOFT_BRANCH;
 #endif
-	return myBranch;
+    return myBranch;
 }
 
 
-
-wxString wxHgVersion::GetSoftNumber(){
+wxString wxHgVersion::GetSoftNumber()
+{
     wxString myNum = wxEmptyString;
 #ifdef WXHGVERSION_SOFT_NUMBER
-	myNum = WXHGVERSION_SOFT_NUMBER;
+    myNum = WXHGVERSION_SOFT_NUMBER;
 #endif
-	return myNum;
+    return myNum;
 }
 
 
-
-wxString wxHgVersion::GetVersionName(){
+wxString wxHgVersion::GetVersionName()
+{
     wxString myTxt = wxEmptyString;
 #ifdef WXHGVERSION_NAME
     myTxt = WXHGVERSION_NAME;
@@ -77,8 +78,8 @@ wxString wxHgVersion::GetVersionName(){
 }
 
 
-
-wxString wxHgVersion::GetVersionVersion(){
+wxString wxHgVersion::GetVersionVersion()
+{
     wxString myTxt = wxEmptyString;
 #ifdef WXHGVERSION_TEXT
     myTxt = WXHGVERSION_TEXT;
@@ -87,8 +88,8 @@ wxString wxHgVersion::GetVersionVersion(){
 }
 
 
-
-wxString wxHgVersion::GetVersionBranch(){
+wxString wxHgVersion::GetVersionBranch()
+{
     wxString myTxt = wxEmptyString;
 #ifdef WXHGVERSION_BRANCH
     myTxt = WXHGVERSION_BRANCH;
@@ -97,8 +98,8 @@ wxString wxHgVersion::GetVersionBranch(){
 }
 
 
-
-wxString wxHgVersion::GetVersionNumber(){
+wxString wxHgVersion::GetVersionNumber()
+{
     wxString myTxt = wxEmptyString;
 #ifdef WXHGVERSION_NUMBER
     myTxt = WXHGVERSION_NUMBER;
@@ -107,8 +108,8 @@ wxString wxHgVersion::GetVersionNumber(){
 }
 
 
-
-wxString wxHgVersion::GetvroomGISVersion(){
+wxString wxHgVersion::GetvroomGISVersion()
+{
     wxString myTxt = wxEmptyString;
 #ifdef VROOMGIS_TEXT
     myTxt = VROOMGIS_TEXT;
@@ -117,8 +118,8 @@ wxString wxHgVersion::GetvroomGISVersion(){
 }
 
 
-
-wxString wxHgVersion::GetvroomGISBranch(){
+wxString wxHgVersion::GetvroomGISBranch()
+{
     wxString myTxt = wxEmptyString;
 #ifdef VROOMGIS_BRANCH
     myTxt = VROOMGIS_BRANCH;
@@ -127,8 +128,8 @@ wxString wxHgVersion::GetvroomGISBranch(){
 }
 
 
-
-wxString wxHgVersion::GetvroomGISNumber(){
+wxString wxHgVersion::GetvroomGISNumber()
+{
     wxString myTxt = wxEmptyString;
 #ifdef VROOMGIS_NUMBER
     myTxt = VROOMGIS_NUMBER;
@@ -137,46 +138,48 @@ wxString wxHgVersion::GetvroomGISNumber(){
 }
 
 
-
-wxString wxHgVersion::GetwxWidgetsNumber(){
-	wxString mywxVersion = wxString::Format("%d.%d.%d", wxMAJOR_VERSION, wxMINOR_VERSION, wxRELEASE_NUMBER);
-	if (wxSUBRELEASE_NUMBER != 0) {
-		mywxVersion.Append(wxString::Format(".%d",wxSUBRELEASE_NUMBER));
-	}
-	return mywxVersion;
+wxString wxHgVersion::GetwxWidgetsNumber()
+{
+    wxString mywxVersion = wxString::Format("%d.%d.%d", wxMAJOR_VERSION, wxMINOR_VERSION, wxRELEASE_NUMBER);
+    if (wxSUBRELEASE_NUMBER != 0) {
+        mywxVersion.Append(wxString::Format(".%d", wxSUBRELEASE_NUMBER));
+    }
+    return mywxVersion;
 }
 
 
-
-wxString wxHgVersion::GetwxWidgetsSVN(){
-	wxString mySVN = wxEmptyString;
+wxString wxHgVersion::GetwxWidgetsSVN()
+{
+    wxString mySVN = wxEmptyString;
 #ifdef WXHGVERSION_WXWIDGETS_SVN
-	mySVN = WXHGVERSION_WXWIDGETS_SVN;
+    mySVN = WXHGVERSION_WXWIDGETS_SVN;
 #endif
-	return mySVN;
+    return mySVN;
 }
 
 
-
-wxString wxHgVersion::GetGDALNumber(){
-	wxString myGDAL = wxEmptyString;
+wxString wxHgVersion::GetGDALNumber()
+{
+    wxString myGDAL = wxEmptyString;
 #ifdef GDAL_INCLUDE_DIR
-	myGDAL = GDAL_RELEASE_NAME;
+    myGDAL = GDAL_RELEASE_NAME;
 #endif
-	return myGDAL;
+    return myGDAL;
 }
 
 
-wxString wxHgVersion::GetGEOSNumber(){
-	wxString myGEOS = wxEmptyString;
+wxString wxHgVersion::GetGEOSNumber()
+{
+    wxString myGEOS = wxEmptyString;
 #ifdef GEOS_INCLUDE_DIR
-	myGEOS = GEOS_VERSION;
+    myGEOS = GEOS_VERSION;
 #endif
-	return myGEOS;
+    return myGEOS;
 }
 
 
-wxString wxHgVersion::GetCurlNumber(){
+wxString wxHgVersion::GetCurlNumber()
+{
     wxString myTxt = wxEmptyString;
 #ifdef CURL_INCLUDE_DIR
     myTxt = wxString(LIBCURL_VERSION);
@@ -185,7 +188,8 @@ wxString wxHgVersion::GetCurlNumber(){
 }
 
 
-wxString wxHgVersion::GetSQLiteNumber(){
+wxString wxHgVersion::GetSQLiteNumber()
+{
     wxString mySQlite = wxEmptyString;
 #ifdef SQLITE_LIBRARIES
     mySQlite  = wxString(sqlite3_libversion());
@@ -194,16 +198,18 @@ wxString wxHgVersion::GetSQLiteNumber(){
 }
 
 
-wxString wxHgVersion::GetMySQLNumber(){
-	wxString myMySQL = wxEmptyString;
+wxString wxHgVersion::GetMySQLNumber()
+{
+    wxString myMySQL = wxEmptyString;
 #ifdef MYSQL_INCLUDE_DIR
-	myMySQL = wxString(mysql_get_client_info(), wxConvUTF8);
+    myMySQL = wxString(mysql_get_client_info(), wxConvUTF8);
 #endif
-	return myMySQL;
+    return myMySQL;
 }
 
 
-wxString wxHgVersion::GetNetCDFNumber(){
+wxString wxHgVersion::GetNetCDFNumber()
+{
     wxString ncVers = wxEmptyString;
 #ifdef NetCDF_LIBRARIES
     ncVers = wxString(nc_inq_libvers());
@@ -212,36 +218,33 @@ wxString wxHgVersion::GetNetCDFNumber(){
 }
 
 
-wxString wxHgVersion::GetProjNumber(){
+wxString wxHgVersion::GetProjNumber()
+{
     wxString myProj = wxEmptyString;
 #ifdef PROJ_LIBRARY
     myProj = wxString::Format("%d", PJ_VERSION);
 #elif defined PROJ4_INCLUDE_DIR
-	myProj = wxString::Format("%d", PJ_VERSION);
+    myProj = wxString::Format("%d", PJ_VERSION);
 #endif
-	// Adding points
-	if (!myProj.IsEmpty())
-	{
-		wxString myProjDots = wxEmptyString;
-		for (unsigned int i=0; i<myProj.Length(); i++)
-		{
-			if (i!=myProj.Length()-1)
-			{
-				myProjDots.Append(myProj.Mid(i,1)+".");
-			}
-			else
-			{
-				myProjDots.Append(myProj.Mid(i,1));
-			}
-		}
-		myProj = myProjDots;
-	}
+    // Adding points
+    if (!myProj.IsEmpty()) {
+        wxString myProjDots = wxEmptyString;
+        for (unsigned int i = 0; i < myProj.Length(); i++) {
+            if (i != myProj.Length() - 1) {
+                myProjDots.Append(myProj.Mid(i, 1) + ".");
+            } else {
+                myProjDots.Append(myProj.Mid(i, 1));
+            }
+        }
+        myProj = myProjDots;
+    }
 
     return myProj;
 }
 
 
-wxString wxHgVersion::GetEigenNumber(){
+wxString wxHgVersion::GetEigenNumber()
+{
     wxString myTxt = wxEmptyString;
 #ifdef EIGEN3_INCLUDE_DIR
     myTxt = wxString::Format("%d.%d.%d", EIGEN_WORLD_VERSION, EIGEN_MAJOR_VERSION, EIGEN_MINOR_VERSION);
@@ -250,7 +253,8 @@ wxString wxHgVersion::GetEigenNumber(){
 }
 
 
-wxString wxHgVersion::GetAllSoftwareInfo(bool useBranch){
+wxString wxHgVersion::GetAllSoftwareInfo(bool useBranch)
+{
     wxString myText = GetSoftName() + _T("\n");
     myText.Append(wxString::Format(_("version: %s (%s)"), GetSoftNumber(), GetSoftVersion()));
     if (useBranch == true) {
@@ -260,56 +264,55 @@ wxString wxHgVersion::GetAllSoftwareInfo(bool useBranch){
 }
 
 
-wxString wxHgVersion::GetAllModuleInfo(bool showChangesetID){
-	wxString myModules = wxEmptyString;
-	if (showChangesetID){
-		myModules = wxString::Format(_T("%s: %s (%s)\n"), GetVersionName(), GetVersionNumber(), GetVersionVersion());
-	}
-	else {
-		myModules = wxString::Format(_T("%s: %s\n"), GetVersionName(), GetVersionNumber());
-	}
-    
-    if (GetvroomGISNumber() != wxEmptyString) {
-		if (showChangesetID){
-			myModules.Append(wxString::Format(_T("vroomGIS: %s (%s)\n"), GetvroomGISNumber(), GetvroomGISVersion()));
-		}
-		else {
-			myModules.Append(wxString::Format(_T("vroomGIS: %s\n"), GetvroomGISNumber()));
-		}
+wxString wxHgVersion::GetAllModuleInfo(bool showChangesetID)
+{
+    wxString myModules = wxEmptyString;
+    if (showChangesetID) {
+        myModules = wxString::Format(_T("%s: %s (%s)\n"), GetVersionName(), GetVersionNumber(), GetVersionVersion());
+    } else {
+        myModules = wxString::Format(_T("%s: %s\n"), GetVersionName(), GetVersionNumber());
     }
-    
+
+    if (GetvroomGISNumber() != wxEmptyString) {
+        if (showChangesetID) {
+            myModules.Append(wxString::Format(_T("vroomGIS: %s (%s)\n"), GetvroomGISNumber(), GetvroomGISVersion()));
+        } else {
+            myModules.Append(wxString::Format(_T("vroomGIS: %s\n"), GetvroomGISNumber()));
+        }
+    }
+
     if (GetGDALNumber() != wxEmptyString) {
         myModules.Append(_T("GDAL: ") + GetGDALNumber() + _T("\n"));
     }
-    
+
     if (GetGEOSNumber() != wxEmptyString) {
         myModules.Append(_T("GEOS: ") + GetGEOSNumber() + _T("\n"));
     }
-    
+
     if (GetCurlNumber() != wxEmptyString) {
         myModules.Append(_T("libCurl: ") + GetCurlNumber() + _T("\n"));
     }
-    
+
     if (GetSQLiteNumber() != wxEmptyString) {
         myModules.Append(_T("SQLite: ") + GetSQLiteNumber() + _T("\n"));
     }
-    
+
     if (GetMySQLNumber() != wxEmptyString) {
         myModules.Append(_T("MySQL: ") + GetMySQLNumber() + _T("\n"));
     }
-    
+
     if (GetNetCDFNumber() != wxEmptyString) {
         myModules.Append(_T("NetCDF: ") + GetNetCDFNumber().BeforeFirst(' ') + _T("\n"));
     }
-    
+
     if (GetProjNumber() != wxEmptyString) {
         myModules.Append(_T("Proj4: ") + GetProjNumber() + _T("\n"));
     }
-    
+
     if (GetEigenNumber() != wxEmptyString) {
         myModules.Append(_T("Eigen: ") + GetEigenNumber() + _T("\n"));
     }
-    
+
     myModules.Append(_T("wxWidgets: ") + GetwxWidgetsNumber());
     if (GetwxWidgetsSVN().IsEmpty() == false) {
         myModules.Append(wxString::Format(" (%s)", GetwxWidgetsSVN()));
