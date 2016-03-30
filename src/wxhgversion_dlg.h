@@ -29,39 +29,48 @@
 #define _WXHGVERSION_DLG_H
 
 #include "wx/wxprec.h"
+
 #ifndef WX_PRECOMP
+
 #include <wx/wx.h>
+
 #endif
 
 
-class wxHgVersionDlg : public wxDialog {
-	
+class wxHgVersionDlg
+        : public wxDialog
+{
+
 public:
-    wxHgVersionDlg(wxWindow * parent, wxWindowID id, const wxString & title,
-				 const wxPoint & pos = wxDefaultPosition,
-				 const wxSize & size = wxDefaultSize,
-				 long style = wxDEFAULT_DIALOG_STYLE);
+    wxHgVersionDlg(wxWindow *parent, wxWindowID id, const wxString &title, const wxPoint &pos = wxDefaultPosition,
+                   const wxSize &size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE);
+
     virtual ~wxHgVersionDlg();
-	
-    void SetBitmapLogo(const wxBitmap & bmp);
+
+    void SetBitmapLogo(const wxBitmap &bmp);
+
     void SetTitleAndCaption(wxString title);
+
     void SetSoftName(wxString name);
+
     void SetModulesName(wxString name);
+
     void SetCopyright(wxString name);
-	
-	virtual int ShowModal();
-    
+
+    virtual int ShowModal();
+
 private:
-	wxStaticBitmap* m_bmpCtrl;
-	wxStaticText* m_titleCtrl;
-	wxStaticText* m_progNameCtrl;
-	wxTextCtrl* m_modulesCtrl;
-	wxStaticText* m_copyRightCtrl;
-    wxButton * m_buttonSystemInfoCtrl;
-	
-	void _CreateControls();
-    
-    void OnButtonSystemInfo(wxCommandEvent & event);    
+    wxStaticBitmap *m_bmpCtrl;
+    wxStaticText *m_titleCtrl;
+    wxStaticText *m_progNameCtrl;
+    wxTextCtrl *m_modulesCtrl;
+    wxStaticText *m_copyRightCtrl;
+    wxButton *m_buttonSystemInfoCtrl;
+
+    void _CreateControls();
+
+    void OnButtonSystemInfo(wxCommandEvent &event);
 };
+
 #endif
 

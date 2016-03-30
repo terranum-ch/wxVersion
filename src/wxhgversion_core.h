@@ -27,43 +27,67 @@
 
 #ifndef _WXHGVERSION_CORE_H_
 #define _WXHGVERSION_CORE_H_
+
 #include "wx/wxprec.h"
+
 #ifndef WX_PRECOMP
+
 #include <wx/wx.h>
+
 #endif
+
 #include "wxhgversion_param.h"
 
 
-class wxHgVersion {
+class wxHgVersion
+{
 public:
     static wxString GetSoftName();
+
     static wxString GetSoftVersion();
+
     static wxString GetSoftBranch();
+
     static wxString GetSoftNumber();
-    
+
     static wxString GetVersionName();
+
     static wxString GetVersionVersion();
+
     static wxString GetVersionBranch();
+
     static wxString GetVersionNumber();
-    
+
     static wxString GetvroomGISVersion();
+
     static wxString GetvroomGISBranch();
+
     static wxString GetvroomGISNumber();
-    
+
     static wxString GetwxWidgetsNumber();
+
     static wxString GetwxWidgetsSVN();
 
     static wxString GetGDALNumber();
+
     static wxString GetGEOSNumber();
+
     static wxString GetCurlNumber();
+
     static wxString GetSQLiteNumber();
-	static wxString GetMySQLNumber();
+
+    static wxString GetMySQLNumber();
+
     static wxString GetNetCDFNumber();
+
     static wxString GetProjNumber();
+
     static wxString GetEigenNumber();
-    
+
     static wxString GetAllSoftwareInfo(bool useBranch = true);
+
     static wxString GetAllModuleInfo(bool showChangesetID = true);
 };
+
 #endif
 

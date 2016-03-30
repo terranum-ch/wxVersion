@@ -28,38 +28,38 @@
 #include "wxhgversion_dlg.h"
 #include "wxhgversion_core.h"
 
-wxHgVersionDlg::wxHgVersionDlg(wxWindow * parent, wxWindowID id,
-						   const wxString & title, const wxPoint & pos,
-						   const wxSize & size, long style) :
-wxDialog(parent, id, title, pos, size,style) {
-	_CreateControls();
+wxHgVersionDlg::wxHgVersionDlg(wxWindow *parent, wxWindowID id, const wxString &title, const wxPoint &pos,
+                               const wxSize &size, long style)
+        : wxDialog(parent, id, title, pos, size, style)
+{
+    _CreateControls();
 
-	SetTitleAndCaption(wxHgVersion::GetSoftName());
-	wxString myName = wxString::Format(_("version %s (%s)"),
-                                       wxHgVersion::GetSoftNumber(),
+    SetTitleAndCaption(wxHgVersion::GetSoftName());
+    wxString myName = wxString::Format(_("version %s (%s)"), wxHgVersion::GetSoftNumber(),
                                        wxHgVersion::GetSoftVersion());
 
-	SetSoftName(myName);
+    SetSoftName(myName);
 
-	SetModulesName(wxHgVersion::GetAllModuleInfo());
-  wxString myCopy=_T("(c)");
+    SetModulesName(wxHgVersion::GetAllModuleInfo());
+    wxString myCopy = _T("(c)");
 #ifndef __LINUX__
-	myCopy = _T("\u00A9"); // this lead to a crash under linux
+    myCopy = _T("\u00A9"); // this lead to a crash under linux
 #endif
-	myCopy.Append(wxString::Format(_T(" Lucien Schreiber, %d"), wxDateTime::Now().GetYear()));
-	SetCopyright(myCopy);
+    myCopy.Append(wxString::Format(_T(" Lucien Schreiber, %d"), wxDateTime::Now().GetYear()));
+    SetCopyright(myCopy);
     m_buttonSystemInfoCtrl->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &wxHgVersionDlg::OnButtonSystemInfo, this);
 
 }
 
 
-
-wxHgVersionDlg::~wxHgVersionDlg() {
+wxHgVersionDlg::~wxHgVersionDlg()
+{
     m_buttonSystemInfoCtrl->Unbind(wxEVT_COMMAND_BUTTON_CLICKED, &wxHgVersionDlg::OnButtonSystemInfo, this);
 }
 
 
-void wxHgVersionDlg::OnButtonSystemInfo(wxCommandEvent & event){
+void wxHgVersionDlg::OnButtonSystemInfo(wxCommandEvent &event)
+{
     wxString myCaption = wxGetOsDescription();
 #ifdef __LINUX__
     myCaption.Append(_T("\n"));
@@ -70,88 +70,90 @@ void wxHgVersionDlg::OnButtonSystemInfo(wxCommandEvent & event){
 }
 
 
-
-void wxHgVersionDlg::SetBitmapLogo(const wxBitmap & bmp) {
-	m_bmpCtrl->SetBitmap(bmp);
+void wxHgVersionDlg::SetBitmapLogo(const wxBitmap &bmp)
+{
+    m_bmpCtrl->SetBitmap(bmp);
 }
 
 
-
-void wxHgVersionDlg::SetTitleAndCaption(wxString title) {
-	m_titleCtrl->SetLabel(title);
-	this->SetTitle(title);
+void wxHgVersionDlg::SetTitleAndCaption(wxString title)
+{
+    m_titleCtrl->SetLabel(title);
+    this->SetTitle(title);
 }
 
 
-
-void wxHgVersionDlg::SetSoftName(wxString name) {
-	m_progNameCtrl->SetLabel(name);
+void wxHgVersionDlg::SetSoftName(wxString name)
+{
+    m_progNameCtrl->SetLabel(name);
 }
 
 
-
-void wxHgVersionDlg::SetModulesName(wxString name) {
-	m_modulesCtrl->SetValue(name);
+void wxHgVersionDlg::SetModulesName(wxString name)
+{
+    m_modulesCtrl->SetValue(name);
 }
 
 
-
-void wxHgVersionDlg::SetCopyright(wxString name) {
-	m_copyRightCtrl->SetLabel(name);
+void wxHgVersionDlg::SetCopyright(wxString name)
+{
+    m_copyRightCtrl->SetLabel(name);
 }
 
 
+void wxHgVersionDlg::_CreateControls()
+{
+    this->SetSizeHints(wxDefaultSize, wxDefaultSize);
+    this->SetFont(wxNullFont);
 
-void wxHgVersionDlg::_CreateControls(){
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
-	this->SetFont(wxNullFont);
+    wxBoxSizer *bSizer1;
+    bSizer1 = new wxBoxSizer(wxVERTICAL);
 
-	wxBoxSizer* bSizer1;
-	bSizer1 = new wxBoxSizer( wxVERTICAL );
+    m_bmpCtrl = new wxStaticBitmap(this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxDefaultSize, 0);
+    bSizer1->Add(m_bmpCtrl, 0, wxALL | wxALIGN_CENTER_HORIZONTAL, 5);
 
-	m_bmpCtrl = new wxStaticBitmap( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer1->Add( m_bmpCtrl, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+    m_titleCtrl = new wxStaticText(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0);
+    m_titleCtrl->Wrap(-1);
 
-	m_titleCtrl = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	m_titleCtrl->Wrap( -1 );
+    bSizer1->Add(m_titleCtrl, 0, wxALL | wxALIGN_CENTER_HORIZONTAL, 5);
 
-	bSizer1->Add( m_titleCtrl, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+    m_progNameCtrl = new wxStaticText(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize,
+                                      wxALIGN_CENTRE_HORIZONTAL);
+    m_progNameCtrl->Wrap(-1);
+    bSizer1->Add(m_progNameCtrl, 0, wxALL | wxALIGN_CENTER_HORIZONTAL, 5);
 
-	m_progNameCtrl = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE_HORIZONTAL );
-	m_progNameCtrl->Wrap( -1 );
-	bSizer1->Add( m_progNameCtrl, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+    m_modulesCtrl = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize(300, 180),
+                                   wxTE_MULTILINE | wxTE_LEFT);
+    bSizer1->Add(m_modulesCtrl, 1, wxALL | wxEXPAND, 5);
 
-	m_modulesCtrl = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize(300,180), wxTE_MULTILINE | wxTE_LEFT);
-	bSizer1->Add( m_modulesCtrl, 1, wxALL|wxEXPAND, 5 );
+    wxBoxSizer *bSizer2;
+    bSizer2 = new wxBoxSizer(wxHORIZONTAL);
 
-    wxBoxSizer* bSizer2;
-	bSizer2 = new wxBoxSizer( wxHORIZONTAL );
+    m_copyRightCtrl = new wxStaticText(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0);
+    m_copyRightCtrl->Wrap(-1);
+    bSizer2->Add(m_copyRightCtrl, 1, wxALL | wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL, 5);
 
-	m_copyRightCtrl = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	m_copyRightCtrl->Wrap( -1 );
-	bSizer2->Add( m_copyRightCtrl, 1, wxALL|wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_buttonSystemInfoCtrl = new wxButton( this, wxID_ANY, wxT("System info"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer2->Add( m_buttonSystemInfoCtrl, 0, wxALL, 5 );
-	bSizer1->Add( bSizer2, 0, wxEXPAND, 5 );
+    m_buttonSystemInfoCtrl = new wxButton(this, wxID_ANY, wxT("System info"), wxDefaultPosition, wxDefaultSize, 0);
+    bSizer2->Add(m_buttonSystemInfoCtrl, 0, wxALL, 5);
+    bSizer1->Add(bSizer2, 0, wxEXPAND, 5);
 
 #ifdef __WXOSX__
-	m_titleCtrl->SetFont(wxNullFont);
-	m_progNameCtrl->SetFont(wxNullFont);
-	m_copyRightCtrl->SetFont(wxNullFont);
+    m_titleCtrl->SetFont(wxNullFont);
+    m_progNameCtrl->SetFont(wxNullFont);
+    m_copyRightCtrl->SetFont(wxNullFont);
 #endif
     m_titleCtrl->SetFont(m_titleCtrl->GetFont().MakeBold().MakeLarger());
 
-	this->SetSizer( bSizer1 );
+    this->SetSizer(bSizer1);
 }
 
 
-
-int wxHgVersionDlg::ShowModal(){
-	this->Layout();
-	wxSizer * mySizer = this->GetSizer();
-	wxASSERT(mySizer);
-	mySizer->Fit(this);
-	CenterOnParent(wxBOTH);
-	return wxDialog::ShowModal();
+int wxHgVersionDlg::ShowModal()
+{
+    this->Layout();
+    wxSizer *mySizer = this->GetSizer();
+    wxASSERT(mySizer);
+    mySizer->Fit(this);
+    CenterOnParent(wxBOTH);
+    return wxDialog::ShowModal();
 }

@@ -2,16 +2,16 @@
 # (c) LUCIEN SCHREIBER 2013
 
 cmake_minimum_required(VERSION 2.6)
-PROJECT ("cmdLineTest")
+PROJECT("cmdLineTest")
 
 #search all source files
-SET (SRC_FILES "../src/main.cpp")
-SOURCE_GROUP (source FILES ${SRC_FILES})
+SET(SRC_FILES "../src/main.cpp")
+SOURCE_GROUP(source FILES ${SRC_FILES})
 
 # FIND WXWIDGETS
 # FOR WINDOWS, DO NOT FORGET TO DEFINE WXWIN VARIABLE
 SET(WXWINDOWS_USE_GL 0)
-INCLUDE ("../../../cmake/FindwxWidgets.cmake")
+INCLUDE("../../../cmake/FindwxWidgets.cmake")
 
 
 #INCLUDE wxHGVERSION
@@ -19,13 +19,13 @@ INCLUDE("../../../build/use_wxhgversion.cmake")
 
 ADD_EXECUTABLE(${CMAKE_PROJECT_NAME} ${SRC_FILES})
 
-IF(USE_WXHGVERSION)
-  TARGET_LINK_LIBRARIES(${CMAKE_PROJECT_NAME} ${WXHGVERSION_NAME})
-ENDIF(USE_WXHGVERSION)
+IF (USE_WXHGVERSION)
+    TARGET_LINK_LIBRARIES(${CMAKE_PROJECT_NAME} ${WXHGVERSION_NAME})
+ENDIF (USE_WXHGVERSION)
 
 # SHOULD WE USE THE MT VERSION FOR DEFAULT 
 # COMPATIBILITY WITH < WINXP
 IF (WIN32)
-  INCLUDE ("../../../cmake/Use_visualstudioMT.cmake")
+    INCLUDE("../../../cmake/Use_visualstudioMT.cmake")
 ENDIF (WIN32)
 

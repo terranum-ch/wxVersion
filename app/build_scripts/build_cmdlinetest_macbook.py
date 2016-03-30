@@ -15,18 +15,20 @@ import subprocess
 
 
 def main():
-  print (build_function.GetBinaryDirectory())
-  print (build_function.GetSourceDirectory())
+    print (build_function.GetBinaryDirectory())
+    print (build_function.GetSourceDirectory())
 
-  #build_function.ClearDirectory()
-  #build_function.UpdateMercurial()
+    # build_function.ClearDirectory()
+    # build_function.UpdateMercurial()
 
-  try:
-    p = subprocess.Popen("cmake -GXcode "+ os.path.join(build_function.GetSourceDirectory(), "app", "cmdlinetest", "build")  + " -DCMAKE_OSX_ARCHITECTURES:TEXT=x86_64 -DCMAKE_OSX_DEPLOYMENT_TARGET:TEXT=10.7 -DCMAKE_OSX_SYSROOT:PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -DCMAKE_WXWINDOWS_WXCONFIG_EXECUTABLE:FILE=/Users/lucien/DATA/PROGRAMATION/_LIB/64/_LIBWXSVN/bin/wx-config -DwxWIDGETS_USING_SVN:BOOL=1 -DwxWIDGETS_PATH_SVN:STRING=/Users/lucien/DATA/PROGRAMATION/_LIB/64/wxWidgets-svn", shell=True, cwd=build_function.GetBinaryDirectory())
-    p.wait()
-  except:
-    print("Error creating makefile")
+    try:
+        p = subprocess.Popen("cmake -GXcode " + os.path.join(build_function.GetSourceDirectory(), "app", "cmdlinetest",
+                                                             "build") + " -DCMAKE_OSX_ARCHITECTURES:TEXT=x86_64 -DCMAKE_OSX_DEPLOYMENT_TARGET:TEXT=10.7 -DCMAKE_OSX_SYSROOT:PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -DCMAKE_WXWINDOWS_WXCONFIG_EXECUTABLE:FILE=/Users/lucien/DATA/PROGRAMATION/_LIB/64/_LIBWXSVN/bin/wx-config -DwxWIDGETS_USING_SVN:BOOL=1 -DwxWIDGETS_PATH_SVN:STRING=/Users/lucien/DATA/PROGRAMATION/_LIB/64/wxWidgets-svn",
+                             shell=True, cwd=build_function.GetBinaryDirectory())
+        p.wait()
+    except:
+        print("Error creating makefile")
+
 
 if __name__ == '__main__':
-  main()
-
+    main()
