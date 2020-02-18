@@ -1,1 +1,4 @@
-wxHgVersion===========a small plugin in order to get mercurial information
+wxVersion
+=========
+
+A small plugin to get libraries version number and mercurial/git information
