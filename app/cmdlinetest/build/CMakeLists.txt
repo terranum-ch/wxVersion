@@ -1,7 +1,6 @@
 # CMAKE BUILD FILE FOR CMDLINETEST 
-# (c) LUCIEN SCHREIBER 2013
-
-cmake_minimum_required(VERSION 2.6)
+# (c) LUCIEN SCHREIBER 2020
+cmake_minimum_required(VERSION 3.0)
 PROJECT("cmdLineTest")
 
 #search all source files
@@ -10,22 +9,12 @@ SOURCE_GROUP(source FILES ${SRC_FILES})
 
 # FIND WXWIDGETS
 # FOR WINDOWS, DO NOT FORGET TO DEFINE WXWIN VARIABLE
-SET(WXWINDOWS_USE_GL 0)
-INCLUDE("../../../cmake/FindwxWidgets.cmake")
+# FOR UNIX, SET ENVIRONNEMENT VAR : export WX_CONFIG=<path to wxconfig> before calling cmake
+ find_package(wxWidgets COMPONENTS all REQUIRED)
+ include(${wxWidgets_USE_FILE})
 
-
-#INCLUDE wxHGVERSION
-INCLUDE("../../../build/use_wxgitversion.cmake")
+# #INCLUDE wxHGVERSION
+ INCLUDE("../../../build/use_wxgitversion.cmake")
 
 ADD_EXECUTABLE(${CMAKE_PROJECT_NAME} ${SRC_FILES})
-
-#IF (USE_WXHGVERSION)
-    TARGET_LINK_LIBRARIES(${CMAKE_PROJECT_NAME} ${WXGITVERSION_NAME})
-#ENDIF (USE_WXHGVERSION)
-
-# SHOULD WE USE THE MT VERSION FOR DEFAULT 
-# COMPATIBILITY WITH < WINXP
-IF (WIN32)
-    INCLUDE("../../../cmake/Use_visualstudioMT.cmake")
-ENDIF (WIN32)
-
+target_link_libraries(${CMAKE_PROJECT_NAME} ${WXGITVERSION_NAME} ${wxWidgets_LIBRARIES})
