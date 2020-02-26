@@ -31,8 +31,8 @@
 wxString wxHgVersion::GetSoftName()
 {
     wxString myName = wxEmptyString;
-#ifdef WXHGVERSION_SOFT_NAME
-    myName = WXHGVERSION_SOFT_NAME;
+#ifdef WXGITVERSION_SOFT_NAME
+    myName = WXGITVERSION_SOFT_NAME;
 #endif
     return myName;
 }
@@ -41,8 +41,8 @@ wxString wxHgVersion::GetSoftName()
 wxString wxHgVersion::GetSoftVersion()
 {
     wxString myVersion = wxEmptyString;
-#ifdef WXHGVERSION_SOFT_TEXT
-    myVersion = WXHGVERSION_SOFT_TEXT;
+#ifdef WXGITVERSION_SOFT_TEXT
+    myVersion = WXGITVERSION_SOFT_TEXT;
 #endif
     return myVersion;
 }
@@ -51,8 +51,8 @@ wxString wxHgVersion::GetSoftVersion()
 wxString wxHgVersion::GetSoftBranch()
 {
     wxString myBranch = wxEmptyString;
-#ifdef WXHGVERSION_SOFT_BRANCH
-    myBranch = WXHGVERSION_SOFT_BRANCH;
+#ifdef WXGITVERSION_SOFT_BRANCH
+    myBranch = WXGITVERSION_SOFT_BRANCH;
 #endif
     return myBranch;
 }
@@ -61,8 +61,8 @@ wxString wxHgVersion::GetSoftBranch()
 wxString wxHgVersion::GetSoftNumber()
 {
     wxString myNum = wxEmptyString;
-#ifdef WXHGVERSION_SOFT_NUMBER
-    myNum = WXHGVERSION_SOFT_NUMBER;
+#ifdef WXGITVERSION_SOFT_NUMBER
+    myNum = WXGITVERSION_SOFT_NUMBER;
 #endif
     return myNum;
 }
@@ -71,8 +71,8 @@ wxString wxHgVersion::GetSoftNumber()
 wxString wxHgVersion::GetVersionName()
 {
     wxString myTxt = wxEmptyString;
-#ifdef WXHGVERSION_NAME
-    myTxt = WXHGVERSION_NAME;
+#ifdef WXGITVERSION_NAME
+    myTxt = WXGITVERSION_NAME;
 #endif
     return myTxt;
 }
@@ -81,8 +81,8 @@ wxString wxHgVersion::GetVersionName()
 wxString wxHgVersion::GetVersionVersion()
 {
     wxString myTxt = wxEmptyString;
-#ifdef WXHGVERSION_TEXT
-    myTxt = WXHGVERSION_TEXT;
+#ifdef WXGITVERSION_TEXT
+    myTxt = WXGITVERSION_TEXT;
 #endif
     return myTxt;
 }
@@ -91,8 +91,8 @@ wxString wxHgVersion::GetVersionVersion()
 wxString wxHgVersion::GetVersionBranch()
 {
     wxString myTxt = wxEmptyString;
-#ifdef WXHGVERSION_BRANCH
-    myTxt = WXHGVERSION_BRANCH;
+#ifdef WXGITVERSION_BRANCH
+    myTxt = WXGITVERSION_BRANCH;
 #endif
     return myTxt;
 }
@@ -101,8 +101,8 @@ wxString wxHgVersion::GetVersionBranch()
 wxString wxHgVersion::GetVersionNumber()
 {
     wxString myTxt = wxEmptyString;
-#ifdef WXHGVERSION_NUMBER
-    myTxt = WXHGVERSION_NUMBER;
+#ifdef WXGITVERSION_NUMBER
+    myTxt = WXGITVERSION_NUMBER;
 #endif
     return myTxt;
 }
@@ -151,8 +151,8 @@ wxString wxHgVersion::GetwxWidgetsNumber()
 wxString wxHgVersion::GetwxWidgetsSVN()
 {
     wxString mySVN = wxEmptyString;
-#ifdef WXHGVERSION_WXWIDGETS_SVN
-    mySVN = WXHGVERSION_WXWIDGETS_SVN;
+#ifdef WXGITVERSION_WXWIDGETS_SVN
+    mySVN = WXGITVERSION_WXWIDGETS_SVN;
 #endif
     return mySVN;
 }

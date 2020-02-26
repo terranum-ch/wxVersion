@@ -16,13 +16,13 @@
  * "Portions Copyright [year] [name of copyright owner]"
  * 
  * The Original Software is wxhgversion. The Initial Developer of the 
- * Original Software is Lucien Schreiber from CREALP. 
+ * Original Software is Lucien Schreiber. 
  * All Rights Reserved.
  * 
  */
 
 /*
- * Portions Copyright 2013 Lucien Schreiber, CREALP.
+ * Portions Copyright 2020 Lucien Schreiber, Terranum.
  */
 
 #ifndef _WXHGVERSION_CORE_H_
@@ -36,7 +36,7 @@
 
 #endif
 
-#include "wxhgversion_param.h"
+#include "wxgitversion_param.h"
 
 
 class wxHgVersion

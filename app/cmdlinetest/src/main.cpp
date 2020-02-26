@@ -54,7 +54,7 @@ int main(int argc, char **argv)
     wxInitAllImageHandlers();
 
     wxString myLogoTxt = _T(
-            "*\n* cmdLineTest \n* Testing wxHgVersion plugin \n* (c) Copyright 2013 Lucien Schreiber. All Rights Reserved. \n*\n");
+            "*\n* cmdLineTest \n* Testing wxVersion plugin \n* (c) Copyright 2020 Terranum. All Rights Reserved. \n*\n");
     wxCmdLineParser parser(cmdLineDesc, argc, argv);
     parser.SetLogo(myLogoTxt);
     if (parser.Parse() != 0) {
