@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.0)
 PROJECT("cmdLineTest")
 
 #search all source files
-SET(SRC_FILES "../src/main.cpp")
+SET(SRC_FILES "main.cpp")
 SOURCE_GROUP(source FILES ${SRC_FILES})
 
 # FIND WXWIDGETS
@@ -14,7 +14,7 @@ SOURCE_GROUP(source FILES ${SRC_FILES})
  include(${wxWidgets_USE_FILE})
 
 # #INCLUDE wxHGVERSION
- INCLUDE("../../../build/use_wxgitversion.cmake")
+ INCLUDE("../../build/use_wxgitversion.cmake")
 
 ADD_EXECUTABLE(${CMAKE_PROJECT_NAME} ${SRC_FILES})
 target_link_libraries(${CMAKE_PROJECT_NAME} ${WXGITVERSION_NAME} ${wxWidgets_LIBRARIES})
