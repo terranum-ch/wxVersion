@@ -37,15 +37,15 @@
 #endif
 
 
-class wxHgVersionDlg
+class wxVersionDlg
         : public wxDialog
 {
 
 public:
-    wxHgVersionDlg(wxWindow *parent, wxWindowID id, const wxString &title, const wxPoint &pos = wxDefaultPosition,
+    wxVersionDlg(wxWindow *parent, wxWindowID id, const wxString &title, const wxPoint &pos = wxDefaultPosition,
                    const wxSize &size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE);
 
-    virtual ~wxHgVersionDlg();
+    virtual ~wxVersionDlg();
 
     void SetBitmapLogo(const wxBitmap &bmp);
 

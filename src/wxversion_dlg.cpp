@@ -28,37 +28,37 @@
 #include "wxversion_dlg.h"
 #include "wxversion_core.h"
 
-wxHgVersionDlg::wxHgVersionDlg(wxWindow *parent, wxWindowID id, const wxString &title, const wxPoint &pos,
+wxVersionDlg::wxVersionDlg(wxWindow *parent, wxWindowID id, const wxString &title, const wxPoint &pos,
                                const wxSize &size, long style)
         : wxDialog(parent, id, title, pos, size, style)
 {
     _CreateControls();
 
-    SetTitleAndCaption(wxHgVersion::GetSoftName());
-    wxString myName = wxString::Format(_("version %s (%s)"), wxHgVersion::GetSoftNumber(),
-                                       wxHgVersion::GetSoftVersion());
+    SetTitleAndCaption(wxVersion::GetSoftName());
+    wxString myName = wxString::Format(_("version %s (%s)"), wxVersion::GetSoftNumber(),
+                                       wxVersion::GetSoftVersion());
 
     SetSoftName(myName);
 
-    SetModulesName(wxHgVersion::GetAllModuleInfo());
+    SetModulesName(wxVersion::GetAllModuleInfo());
     wxString myCopy = _T("(c)");
 #ifndef __LINUX__
     myCopy = _T("\u00A9"); // this lead to a crash under linux
 #endif
     myCopy.Append(wxString::Format(_T(" Lucien Schreiber, %d"), wxDateTime::Now().GetYear()));
     SetCopyright(myCopy);
-    m_buttonSystemInfoCtrl->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &wxHgVersionDlg::OnButtonSystemInfo, this);
+    m_buttonSystemInfoCtrl->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &wxVersionDlg::OnButtonSystemInfo, this);
 
 }
 
 
-wxHgVersionDlg::~wxHgVersionDlg()
+wxVersionDlg::~wxVersionDlg()
 {
-    m_buttonSystemInfoCtrl->Unbind(wxEVT_COMMAND_BUTTON_CLICKED, &wxHgVersionDlg::OnButtonSystemInfo, this);
+    m_buttonSystemInfoCtrl->Unbind(wxEVT_COMMAND_BUTTON_CLICKED, &wxVersionDlg::OnButtonSystemInfo, this);
 }
 
 
-void wxHgVersionDlg::OnButtonSystemInfo(wxCommandEvent &event)
+void wxVersionDlg::OnButtonSystemInfo(wxCommandEvent &event)
 {
     wxString myCaption = wxGetOsDescription();
 #ifdef __LINUX__
@@ -70,38 +70,38 @@ void wxHgVersionDlg::OnButtonSystemInfo(wxCommandEvent &event)
 }
 
 
-void wxHgVersionDlg::SetBitmapLogo(const wxBitmap &bmp)
+void wxVersionDlg::SetBitmapLogo(const wxBitmap &bmp)
 {
     m_bmpCtrl->SetBitmap(bmp);
 }
 
 
-void wxHgVersionDlg::SetTitleAndCaption(wxString title)
+void wxVersionDlg::SetTitleAndCaption(wxString title)
 {
     m_titleCtrl->SetLabel(title);
     this->SetTitle(title);
 }
 
 
-void wxHgVersionDlg::SetSoftName(wxString name)
+void wxVersionDlg::SetSoftName(wxString name)
 {
     m_progNameCtrl->SetLabel(name);
 }
 
 
-void wxHgVersionDlg::SetModulesName(wxString name)
+void wxVersionDlg::SetModulesName(wxString name)
 {
     m_modulesCtrl->SetValue(name);
 }
 
 
-void wxHgVersionDlg::SetCopyright(wxString name)
+void wxVersionDlg::SetCopyright(wxString name)
 {
     m_copyRightCtrl->SetLabel(name);
 }
 
 
-void wxHgVersionDlg::_CreateControls()
+void wxVersionDlg::_CreateControls()
 {
     this->SetSizeHints(wxDefaultSize, wxDefaultSize);
     this->SetFont(wxNullFont);
@@ -148,7 +148,7 @@ void wxHgVersionDlg::_CreateControls()
 }
 
 
-int wxHgVersionDlg::ShowModal()
+int wxVersionDlg::ShowModal()
 {
     this->Layout();
     wxSizer *mySizer = this->GetSizer();

@@ -39,7 +39,7 @@
 #include "wxgitversion_param.h"
 
 
-class wxHgVersion
+class wxVersion
 {
 public:
     static wxString GetSoftName();

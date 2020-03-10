@@ -62,8 +62,8 @@ int main(int argc, char **argv)
     }
 
     wxPrintf(myLogoTxt);
-    wxPrintf(wxHgVersion::GetAllSoftwareInfo() + _T("\n"));
-    wxPrintf(wxHgVersion::GetAllModuleInfo() + _T("\n"));
+    wxPrintf(wxVersion::GetAllSoftwareInfo() + _T("\n"));
+    wxPrintf(wxVersion::GetAllModuleInfo() + _T("\n"));
 
     return 0;
 }

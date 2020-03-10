@@ -10,11 +10,11 @@ SOURCE_GROUP(source FILES ${SRC_FILES})
 # FIND WXWIDGETS
 # FOR WINDOWS, DO NOT FORGET TO DEFINE WXWIN VARIABLE
 # FOR UNIX, SET ENVIRONNEMENT VAR : export WX_CONFIG=<path to wxconfig> before calling cmake
- find_package(wxWidgets COMPONENTS all REQUIRED)
- include(${wxWidgets_USE_FILE})
+find_package(wxWidgets COMPONENTS all REQUIRED)
+include(${wxWidgets_USE_FILE})
 
 # #INCLUDE wxHGVERSION
- INCLUDE("../../build/use_wxversion.cmake")
+INCLUDE("../../build/use_wxversion.cmake")
 
 ADD_EXECUTABLE(${CMAKE_PROJECT_NAME} ${SRC_FILES})
 target_link_libraries(${CMAKE_PROJECT_NAME} ${WXGITVERSION_NAME} ${wxWidgets_LIBRARIES})
