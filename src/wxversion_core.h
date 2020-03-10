@@ -66,8 +66,6 @@ public:
 
     static wxString GetwxWidgetsNumber();
 
-    static wxString GetwxWidgetsSVN();
-
     static wxString GetGDALNumber();
 
     static wxString GetGEOSNumber();
@@ -83,6 +81,14 @@ public:
     static wxString GetProjNumber();
 
     static wxString GetEigenNumber();
+
+    static wxString GetPNGNumber();
+
+    static wxString GetJpegNumber();
+
+    static wxString GetJasperNumber();
+
+    static wxString GetEcCodesNumber();
 
     static wxString GetAllSoftwareInfo(bool useBranch = true);
 

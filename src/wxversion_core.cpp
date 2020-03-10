@@ -148,16 +148,6 @@ wxString wxVersion::GetwxWidgetsNumber()
 }
 
 
-wxString wxVersion::GetwxWidgetsSVN()
-{
-    wxString mySVN = wxEmptyString;
-#ifdef WXVERSION_WXWIDGETS_SVN
-    mySVN = WXVERSION_WXWIDGETS_SVN;
-#endif
-    return mySVN;
-}
-
-
 wxString wxVersion::GetGDALNumber()
 {
     wxString myGDAL = wxEmptyString;
@@ -221,23 +211,27 @@ wxString wxVersion::GetNetCDFNumber()
 wxString wxVersion::GetProjNumber()
 {
     wxString myProj = wxEmptyString;
-#ifdef PROJ_LIBRARY
+#ifdef PROJ_INCLUDE_DIR
+#ifdef PJ_VERSION
     myProj = wxString::Format("%d", PJ_VERSION);
-#elif defined PROJ4_INCLUDE_DIR
-    myProj = wxString::Format("%d", PJ_VERSION);
-#endif
     // Adding points
     if (!myProj.IsEmpty()) {
-        wxString myProjDots = wxEmptyString;
-        for (unsigned int i = 0; i < myProj.Length(); i++) {
-            if (i != myProj.Length() - 1) {
-                myProjDots.Append(myProj.Mid(i, 1) + ".");
-            } else {
-                myProjDots.Append(myProj.Mid(i, 1));
-            }
+      wxString myProjDots = wxEmptyString;
+      for (unsigned int i = 0; i < myProj.Length(); i++) {
+        if (i != myProj.Length() - 1) {
+          myProjDots.Append(myProj.Mid(i, 1) + ".");
+        } else {
+          myProjDots.Append(myProj.Mid(i, 1));
         }
-        myProj = myProjDots;
+      }
+      myProj = myProjDots;
     }
+#endif
+#ifdef PROJ_VERSION_MAJOR
+    myProj = wxString::Format("%d.%d.%d", PROJ_VERSION_MAJOR,
+                              PROJ_VERSION_MINOR, PROJ_VERSION_PATCH);
+#endif
+#endif
 
     return myProj;
 }
@@ -246,8 +240,65 @@ wxString wxVersion::GetProjNumber()
 wxString wxVersion::GetEigenNumber()
 {
     wxString myTxt = wxEmptyString;
-#ifdef EIGEN3_INCLUDE_DIR
+#ifdef EIGEN_VERSION
     myTxt = wxString::Format("%d.%d.%d", EIGEN_WORLD_VERSION, EIGEN_MAJOR_VERSION, EIGEN_MINOR_VERSION);
+#endif
+    return myTxt;
+}
+
+
+wxString wxVersion::GetPNGNumber()
+{
+    wxString myTxt = wxEmptyString;
+#ifdef PNG_INCLUDE_DIRS
+    myTxt = wxString(PNG_LIBPNG_VER_STRING);
+#endif
+    return myTxt;
+}
+
+
+wxString wxVersion::GetJpegNumber()
+{
+    wxString myTxt = wxEmptyString;
+#ifdef JPEG_INCLUDE_DIR
+#ifdef JPEG_LIB_VERSION
+    myTxt = wxString::Format("%d", JPEG_LIB_VERSION);
+    // Adding points
+    if (!myTxt.IsEmpty()) {
+        wxString myTxtDots = wxEmptyString;
+        for (unsigned int i = 0; i < myTxt.Length(); i++) {
+            if (i != myTxt.Length() - 1) {
+                myTxtDots.Append(myTxt.Mid(i, 1) + ".");
+            } else {
+                myTxtDots.Append(myTxt.Mid(i, 1));
+            }
+        }
+        myTxt = myTxtDots;
+    }
+#endif
+#ifdef JPEG_LIB_VERSION_MAJOR
+    myTxt =
+            wxString::Format("%d.%d", JPEG_LIB_VERSION_MAJOR, JPEG_LIB_VERSION_MINOR);
+#endif
+#endif
+    return myTxt;
+}
+
+
+wxString wxVersion::GetJasperNumber() {
+    wxString myTxt = wxEmptyString;
+#ifdef JASPER_INCLUDE_DIR
+    myTxt = wxString(JAS_VERSION);
+#endif
+    return myTxt;
+}
+
+
+wxString wxVersion::GetEcCodesNumber()
+{
+    wxString myTxt = wxEmptyString;
+#ifdef ECCODES_LIBRARIES
+    myTxt = wxString(ECCODES_VERSION_STR);
 #endif
     return myTxt;
 }
@@ -313,10 +364,24 @@ wxString wxVersion::GetAllModuleInfo(bool showChangesetID)
         myModules.Append(_T("Eigen: ") + GetEigenNumber() + _T("\n"));
     }
 
-    myModules.Append(_T("wxWidgets: ") + GetwxWidgetsNumber());
-    if (GetwxWidgetsSVN().IsEmpty() == false) {
-        myModules.Append(wxString::Format(" (%s)", GetwxWidgetsSVN()));
+    if (GetPNGNumber() != wxEmptyString) {
+        myModules.Append("PNG: " + GetPNGNumber() + "\n");
     }
+
+    if (GetJpegNumber() != wxEmptyString) {
+        myModules.Append("JPEG: " + GetJpegNumber() + "\n");
+    }
+
+    if (GetJasperNumber() != wxEmptyString) {
+        myModules.Append("Jasper: " + GetJasperNumber() + "\n");
+    }
+
+    if (GetEcCodesNumber() != wxEmptyString) {
+        myModules.Append("ecCodes: " + GetEcCodesNumber() + "\n");
+    }
+
+    myModules.Append(_T("wxWidgets: ") + GetwxWidgetsNumber() + "\n");
+
     return myModules;
 }
 

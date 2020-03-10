@@ -56,9 +56,6 @@ wxgitversion_param.h.in
 #cmakedefine WXVERSION_BRANCH "@WXVERSION_BRANCH@"
 #cmakedefine WXVERSION_NUMBER "@WXVERSION_NUMBER@"
 
-// WXWIDGETS version
-#cmakedefine WXVERSION_WXWIDGETS_SVN "@WXVERSION_WXWIDGETS_SVN@"
-
 // VROOMGIS
 #cmakedefine VROOMGIS_PATH
 #ifdef VROOMGIS_PATH
@@ -113,10 +110,34 @@ wxgitversion_param.h.in
     #include <proj_api.h>
 #endif
 
-// EIGEN 
-#cmakedefine EIGEN3_INCLUDE_DIR
-#ifdef EIGEN3_INCLUDE_DIR
+// EIGEN
+#cmakedefine EIGEN_VERSION
+#ifdef EIGEN_VERSION
     #include <Eigen/Core>
+#endif
+
+// PNG
+#cmakedefine PNG_INCLUDE_DIRS
+#ifdef PNG_INCLUDE_DIRS
+    #include <png.h>
+#endif
+
+// JPEG
+#cmakedefine JPEG_INCLUDE_DIR
+#ifdef JPEG_INCLUDE_DIR
+    #include <jpeglib.h>
+#endif
+
+// JASPER
+#cmakedefine JASPER_INCLUDE_DIR
+#ifdef JASPER_INCLUDE_DIR
+    #include <jasper/jas_config.h>
+#endif
+
+// ECCODES
+#cmakedefine ECCODES_LIBRARIES
+#ifdef ECCODES_LIBRARIES
+    #include <eccodes_version.h>
 #endif
 
 
