@@ -57,8 +57,8 @@ wxgitversion_param.h.in
 #cmakedefine WXVERSION_NUMBER "@WXVERSION_NUMBER@"
 
 // VROOMGIS
-#cmakedefine USE_VROOMGIS
-#ifdef USE_VROOMGIS
+#cmakedefine VROOMGIS_PATH
+#ifdef VROOMGIS_PATH
     #cmakedefine VROOMGIS_TEXT "@VROOMGIS_TEXT@"
     #cmakedefine VROOMGIS_BRANCH "@VROOMGIS_BRANCH@"
     #cmakedefine VROOMGIS_NUMBER "@VROOMGIS_NUMBER@"
