@@ -10,7 +10,7 @@ SOURCE_GROUP(source FILES ${SRC_FILES})
 # FIND WXWIDGETS
 # FOR WINDOWS, DO NOT FORGET TO DEFINE WXWIN VARIABLE
 # FOR UNIX, SET ENVIRONNEMENT VAR : export WX_CONFIG=<path to wxconfig> before calling cmake
-find_package(wxWidgets COMPONENTS all REQUIRED)
+find_package(wxWidgets REQUIRED)
 include(${wxWidgets_USE_FILE})
 
 
