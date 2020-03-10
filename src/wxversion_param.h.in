@@ -111,8 +111,8 @@ wxgitversion_param.h.in
 #endif
 
 // EIGEN
-#cmakedefine EIGEN_VERSION
-#ifdef EIGEN_VERSION
+#cmakedefine USE_EIGEN
+#ifdef USE_EIGEN
     #include <Eigen/Core>
 #endif
 
@@ -131,7 +131,7 @@ wxgitversion_param.h.in
 // JASPER
 #cmakedefine JASPER_INCLUDE_DIR
 #ifdef JASPER_INCLUDE_DIR
-    #include <jasper/jas_config.h>
+    #include <jasper/jas_version.h>
 #endif
 
 // ECCODES
