@@ -31,8 +31,8 @@
 wxString wxVersion::GetSoftName()
 {
     wxString myName = wxEmptyString;
-#ifdef WXGITVERSION_SOFT_NAME
-    myName = WXGITVERSION_SOFT_NAME;
+#ifdef WXVERSION_SOFT_NAME
+    myName = WXVERSION_SOFT_NAME;
 #endif
     return myName;
 }
@@ -41,8 +41,8 @@ wxString wxVersion::GetSoftName()
 wxString wxVersion::GetSoftVersion()
 {
     wxString myVersion = wxEmptyString;
-#ifdef WXGITVERSION_SOFT_TEXT
-    myVersion = WXGITVERSION_SOFT_TEXT;
+#ifdef WXVERSION_SOFT_TEXT
+    myVersion = WXVERSION_SOFT_TEXT;
 #endif
     return myVersion;
 }
@@ -51,8 +51,8 @@ wxString wxVersion::GetSoftVersion()
 wxString wxVersion::GetSoftBranch()
 {
     wxString myBranch = wxEmptyString;
-#ifdef WXGITVERSION_SOFT_BRANCH
-    myBranch = WXGITVERSION_SOFT_BRANCH;
+#ifdef WXVERSION_SOFT_BRANCH
+    myBranch = WXVERSION_SOFT_BRANCH;
 #endif
     return myBranch;
 }
@@ -61,8 +61,8 @@ wxString wxVersion::GetSoftBranch()
 wxString wxVersion::GetSoftNumber()
 {
     wxString myNum = wxEmptyString;
-#ifdef WXGITVERSION_SOFT_NUMBER
-    myNum = WXGITVERSION_SOFT_NUMBER;
+#ifdef WXVERSION_SOFT_NUMBER
+    myNum = WXVERSION_SOFT_NUMBER;
 #endif
     return myNum;
 }
@@ -71,8 +71,8 @@ wxString wxVersion::GetSoftNumber()
 wxString wxVersion::GetVersionName()
 {
     wxString myTxt = wxEmptyString;
-#ifdef WXGITVERSION_NAME
-    myTxt = WXGITVERSION_NAME;
+#ifdef WXVERSION_NAME
+    myTxt = WXVERSION_NAME;
 #endif
     return myTxt;
 }
@@ -81,8 +81,8 @@ wxString wxVersion::GetVersionName()
 wxString wxVersion::GetVersionVersion()
 {
     wxString myTxt = wxEmptyString;
-#ifdef WXGITVERSION_TEXT
-    myTxt = WXGITVERSION_TEXT;
+#ifdef WXVERSION_TEXT
+    myTxt = WXVERSION_TEXT;
 #endif
     return myTxt;
 }
@@ -91,8 +91,8 @@ wxString wxVersion::GetVersionVersion()
 wxString wxVersion::GetVersionBranch()
 {
     wxString myTxt = wxEmptyString;
-#ifdef WXGITVERSION_BRANCH
-    myTxt = WXGITVERSION_BRANCH;
+#ifdef WXVERSION_BRANCH
+    myTxt = WXVERSION_BRANCH;
 #endif
     return myTxt;
 }
@@ -101,8 +101,8 @@ wxString wxVersion::GetVersionBranch()
 wxString wxVersion::GetVersionNumber()
 {
     wxString myTxt = wxEmptyString;
-#ifdef WXGITVERSION_NUMBER
-    myTxt = WXGITVERSION_NUMBER;
+#ifdef WXVERSION_NUMBER
+    myTxt = WXVERSION_NUMBER;
 #endif
     return myTxt;
 }
@@ -151,8 +151,8 @@ wxString wxVersion::GetwxWidgetsNumber()
 wxString wxVersion::GetwxWidgetsSVN()
 {
     wxString mySVN = wxEmptyString;
-#ifdef WXGITVERSION_WXWIDGETS_SVN
-    mySVN = WXGITVERSION_WXWIDGETS_SVN;
+#ifdef WXVERSION_WXWIDGETS_SVN
+    mySVN = WXVERSION_WXWIDGETS_SVN;
 #endif
     return mySVN;
 }

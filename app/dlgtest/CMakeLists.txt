@@ -1,0 +1,41 @@
+# CMAKE BUILD FILE FOR CMDLINETEST 
+# (c) LUCIEN SCHREIBER 2020
+cmake_minimum_required(VERSION 3.0)
+PROJECT("dlgTest")
+
+#search all source files
+SET(SRC_FILES "main.cpp" "dlgbmp.cpp")
+SOURCE_GROUP(source FILES ${SRC_FILES})
+
+# FIND WXWIDGETS
+# FOR WINDOWS, DO NOT FORGET TO DEFINE WXWIN VARIABLE
+# FOR UNIX, SET ENVIRONNEMENT VAR : export WX_CONFIG=<path to wxconfig> before calling cmake
+find_package(wxWidgets COMPONENTS all REQUIRED)
+include(${wxWidgets_USE_FILE})
+
+
+IF (APPLE)
+    SET(APP_ICON "dlgtest.icns")
+    SET(MACOSX_BUNDLE_INFO_STRING "wxVersion test Program")
+    SET(MACOSX_BUNDLE_ICON_FILE ${APP_ICON})
+    SET(MACOSX_BUNDLE_BUNDLE_NAME "${CMAKE_PROJECT_NAME}")
+    SET(MACOSX_BUNDLE_SHORT_VERSION_STRING "Alpha")
+    SET(MACOSX_BUNDLE_BUNDLE_VERSION "1.0.0")
+    SET(MACOSX_BUNDLE_COPYRIGHT "Lucien Schreiber (c) 2020")
+    # copy icon
+    SET(APP_ICON_LOCATION "dlgtest.icns")
+    SET_SOURCE_FILES_PROPERTIES(${APP_ICON_LOCATION} PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
+    SET(SRC_FILES ${SRC_FILES} ${APP_ICON_LOCATION})
+ENDIF (APPLE)
+
+# #INCLUDE wxHGVERSION
+INCLUDE("../../build/use_wxversion.cmake")
+
+# conditionnal compilation, Windows needs resource.rc
+IF (WIN32)
+    SOURCE_GROUP(resource FILES ../src/resource.rc)
+    ADD_EXECUTABLE(${CMAKE_PROJECT_NAME} WIN32 ${SRC_FILES} "resource.rc")
+ELSE (WIN32)
+    ADD_EXECUTABLE(${CMAKE_PROJECT_NAME} MACOSX_BUNDLE ${SRC_FILES})
+ENDIF (WIN32)
+TARGET_LINK_LIBRARIES(${CMAKE_PROJECT_NAME} ${WXVERSION_NAME} ${wxWidgets_LIBRARIES})

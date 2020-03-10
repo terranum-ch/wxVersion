@@ -17,4 +17,4 @@ include(${wxWidgets_USE_FILE})
 INCLUDE("../../build/use_wxversion.cmake")
 
 ADD_EXECUTABLE(${CMAKE_PROJECT_NAME} ${SRC_FILES})
-target_link_libraries(${CMAKE_PROJECT_NAME} ${WXGITVERSION_NAME} ${wxWidgets_LIBRARIES})
+target_link_libraries(${CMAKE_PROJECT_NAME} ${WXVERSION_NAME} ${wxWidgets_LIBRARIES})
