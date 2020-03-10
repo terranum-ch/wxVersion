@@ -1,7 +1,7 @@
 wxVersion
 =========
 
-A small plugin to get libraries version number and mercurial/git information
+A small plugin to get libraries version number and git information (revison hash and number, branch name etc.).
 
 
 How to build the cmdLineTest application
