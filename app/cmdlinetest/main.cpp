@@ -14,7 +14,7 @@
 #include <wx/dir.h>
 #include <wx/filename.h>
 
-#include "wxhgversion_core.h"
+#include "wxversion_core.h"
 
 
 static const wxCmdLineEntryDesc cmdLineDesc[] = {{wxCMD_LINE_SWITCH, "h", "help", "show this help message", wxCMD_LINE_VAL_NONE, wxCMD_LINE_OPTION_HELP},

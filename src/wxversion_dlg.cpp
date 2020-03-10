@@ -25,8 +25,8 @@
  * Portions Copyright 2013 Lucien Schreiber, CREALP.
  */
 
-#include "wxhgversion_dlg.h"
-#include "wxhgversion_core.h"
+#include "wxversion_dlg.h"
+#include "wxversion_core.h"
 
 wxHgVersionDlg::wxHgVersionDlg(wxWindow *parent, wxWindowID id, const wxString &title, const wxPoint &pos,
                                const wxSize &size, long style)

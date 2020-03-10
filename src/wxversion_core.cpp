@@ -26,7 +26,7 @@
  * Portions Copyright 2013 Pascal Horton, University of Lausanne.
  */
 
-#include "wxhgversion_core.h"
+#include "wxversion_core.h"
 
 wxString wxHgVersion::GetSoftName()
 {

@@ -124,7 +124,7 @@ IF (USE_WXGITVERSION)
         MESSAGE("vroomGIS version number: ${VROOMGIS_NUMBER}")
     ENDIF (VROOMGIS_PATH)
 
-    CONFIGURE_FILE("${WXGITVERSION_SOURCE_DIR}/src/wxgitversion_param.h.in" "${PROJECT_BINARY_DIR}/wxgitversion_param.h")
+    CONFIGURE_FILE("${WXGITVERSION_SOURCE_DIR}/src/wxversion_param.h.in" "${PROJECT_BINARY_DIR}/wxgitversion_param.h")
     INCLUDE_DIRECTORIES("${WXGITVERSION_SOURCE_DIR}/src/")
     INCLUDE_DIRECTORIES("${PROJECT_BINARY_DIR}")
     MESSAGE(${PROJECT_BINARY_DIR})
