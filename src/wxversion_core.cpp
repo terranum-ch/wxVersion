@@ -240,7 +240,7 @@ wxString wxVersion::GetProjNumber()
 wxString wxVersion::GetEigenNumber()
 {
     wxString myTxt = wxEmptyString;
-#ifdef EIGEN_VERSION
+#ifdef USE_EIGEN
     myTxt = wxString::Format("%d.%d.%d", EIGEN_WORLD_VERSION, EIGEN_MAJOR_VERSION, EIGEN_MINOR_VERSION);
 #endif
     return myTxt;
