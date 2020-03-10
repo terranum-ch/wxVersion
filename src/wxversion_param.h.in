@@ -103,7 +103,7 @@ wxgitversion_param.h.in
 // PROJ 
 #cmakedefine PROJ_LIBRARY
 #ifdef PROJ_LIBRARY
-    #include <proj_api.h>
+    #include <proj.h>
 #endif
 #cmakedefine PROJ4_INCLUDE_DIR
 #ifdef PROJ4_INCLUDE_DIR
